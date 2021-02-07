@@ -18,6 +18,7 @@ from django.urls import include, path
 
 urlpatterns = [
     path('tcpowers/', include('tcpowers.urls')),
+    path('mixdesign/', include('mixdesign.urls')),
     path('pccalc/', include('pccalc.urls')),
     path('admin/', admin.site.urls),
 ]
