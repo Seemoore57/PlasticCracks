@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'pccalc.apps.PccalcConfig',
     'tcpowers.apps.TcpowersConfig',
+    'mixdesign.apps.MixdesignConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
