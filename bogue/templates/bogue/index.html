@@ -13,20 +13,185 @@
     </div>
     <div class="row">
         <div class="col-12 calc in">
-            <p>Input Form</p>
+            <ul>
+                <div class="lrow">
+                    <div class="col-5">
+                            <p class="ltitle">Oxide</p>
+                    </div>
+                    <div class="col-5">
+                            <p class="ltitle">Notation</p>
+                    </div>
+                    <div class="col-5">
+                            <p class="ltitle">Common Name</p>
+                    </div>
+                    <div class="col-5">
+                            <p class="ltitle">Weight (%)</p>
+                    </div>
+                </div>
+                <div class="lrow">
+                    <div class="col-5">
+                            <li>CaO</li>
+                    </div>
+                    <div class="col-5">
+                            <li>C</li>
+                    </div>
+                    <div class="col-5">
+                            <li>Lime</li>
+                    </div>
+                    <div class="col-5">
+                            <li><input type="number" id="Cweight" name="Cweight"></li>
+                    </div>
+                </div>
+                <div class="lrow">
+                    <div class="col-5">
+                            <li>SiO<sub>2</sub></li>
+                    </div>
+                    <div class="col-5">
+                            <li>S</li>
+                    </div>
+                    <div class="col-5">
+                            <li>Silica</li>
+                    </div>
+                    <div class="col-5">
+                            <li><input type="number" id="Sweight" name="Sweight"></li>
+                    </div>
+                </div>
+                <div class="lrow">
+                    <div class="col-5">
+                            <li>Al<sub>3</sub>O<sub>2</sub></li>
+                    </div>
+                    <div class="col-5">
+                            <li>A</li>
+                    </div>
+                    <div class="col-5">
+                            <li>Alumina</li>
+                    </div>
+                    <div class="col-5">
+                            <li><input type="number" id="Aweight" name="Aweight"></li>
+                    </div>
+                </div>
+                <div class="lrow">
+                    <div class="col-5">
+                            <li>Fe<sub>2</sub>O<sub>3</sub></li>
+                    </div>
+                    <div class="col-5">
+                            <li>F</li>
+                    </div>
+                    <div class="col-5">
+                            <li>Ferric Oxide</li>
+                    </div>
+                    <div class="col-5">
+                            <li><input type="number" id="Fweight" name="Fweight"></li>
+                    </div>
+                </div>
+                <div class="lrow">
+                    <div class="col-5">
+                            <li>SO<sub>3</sub></li>
+                    </div>
+                    <div class="col-5">
+                            <li>S</li>
+                    </div>
+                    <div class="col-5">
+                            <li>Sulfur Trioxide</li>
+                    </div>
+                    <div class="col-5">
+                            <li><input type="number" id="Sweight" name="Sweight"></li>
+                    </div>
+                </div>
+            </ul>
+            <div class="brow">
+                <button type="submit">Compute</button>
+            </div>
         </div>
         <div class="col-1"></div>
         <div class="col-12 calc result">
-            <p>Description/Results</p>
+            <p>Enter in the percent of the weight each oxide in your cement mix takes up.</p>
+            <p>The table below the input will give the results of the mixture in the percent weight of the compounds comprising it.</p>
+            <p>This box will contain a bar graph showcasing the ratios of the inputs vs the outputs.</p>
+            <p>Press the arrow on the bottom right of the input to compute.</p>
         </div>
     </div>
     <div class="row">
         <div class="col-12 calc breakdown">
-            <p>Composition Breakdown</p>
+            <ul>
+                <div class="lrow">
+                    <div class="col-7">
+                            <p class="ltitle">Oxide</p>
+                    </div>
+                    <div class="col-7">
+                            <p class="ltitle">Compound Name</p>
+                    </div>
+                    <div class="col-7">
+                            <p class="ltitle">Weight (%)</p>
+                    </div>
+                </div>
+                <div class="lrow">
+                    <div class="col-7">
+                        <li>C<sub>3</sub>S</li>
+                    </div>
+                    <div class="col-7">
+                        <li>tricalcium silicate</li>
+                    </div>
+                    <div class="col-7">
+                        <li>- %</li>
+                    </div>
+                </div>
+                <div class="lrow">
+                    <div class="col-7">
+                        <li>C<sub>2</sub>S</li>
+                    </div>
+                    <div class="col-7">
+                        <li>dicalcium silicate</li>
+                    </div>
+                    <div class="col-7">
+                        <li>- %</li>
+                    </div>
+                </div>
+                <div class="lrow">
+                    <div class="col-7">
+                        <li>C<sub>3</sub>A</li>
+                    </div>
+                    <div class="col-7">
+                        <li>tricalcium aluminate</li>
+                    </div>
+                    <div class="col-7">
+                        <li>- %</li>
+                    </div>
+                </div>
+                <div class="lrow">
+                    <div class="col-7">
+                        <li>C<sub>4</sub>AF</li>
+                    </div>
+                    <div class="col-7">
+                        <li>calcium aluminoferrite</li>
+                    </div>
+                    <div class="col-7">
+                        <li>- %</li>
+                    </div>
+                </div>
+                <div class="lrow">
+                    <div class="col-7">
+                        <li>CSH<sub>2</sub></li>
+                    </div>
+                    <div class="col-7">
+                        <li>hydridecsium</li>
+                    </div>
+                    <div class="col-7">
+                        <li>- %</li>
+                    </div>
+                </div>
+            </ul>
         </div>
         <div class="col-1"></div>
         <div class="col-12 calc quiz">
-            <p>Quiz</p>
+            <p>Click one of the options below to see an example of that cement type.</p>
+            <div class="row">
+                <div class="col-5 but"><input type="button" id="i" name="i" value="I"></div>
+                <div class="col-5 but"><input type="button" id="ii" name="ii" value="II"></div>
+                <div class="col-5 but"><input type="button" id="iii" name="iii" value="III"></div>
+                <div class="col-5 but"><input type="button" id="iv" name="iv" value="IV"></div>
+                <div class="col-5 but"><input type="button" id="v" name="v" value="V"></div>
+            </div>
         </div>
     </div>
   </body>

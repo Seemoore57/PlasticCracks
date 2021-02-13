@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 
-.row::after {
+.row::after, .lrow::after, .brow {
   content: "";
   clear: both;
   display: table;
@@ -10,7 +10,7 @@
 
 [class*="col-"] {
   float: left;
-  padding: 15px;
+  padding: 5px;
     border-radius: 15px;
 }
 
@@ -34,6 +34,41 @@ header {
 
 .row {
     padding: 20px;
+}
+
+.lrow {
+
+}
+
+.brow {
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.ltitle {
+    text-align: center;
+    font-size: 10pt;
+}
+
+li {
+    font-size: 8pt;
+    text-align: center;
+    color: dimgrey;
+}
+
+p{
+    text-align: center;
+}
+
+input {
+    align-content: center;
+}
+
+.but {
+    align-content: center;
 }
 
 .col-1 {width: 4%;}
