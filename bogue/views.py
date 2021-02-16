@@ -19,11 +19,11 @@ def calculate(request):
             r = form.cleaned_data['rust']
             su = form.cleaned_data['sulfur']
 
-            if(form.cleaned_data['alumina']/form.cleaned_data['rust'] >= 0.64):
-                tri = 4.071*l - 7.6*si - 6.718*a - 1.43*r - 2.852*su
-                di = 2.867*si - 0.7544*tri
-                alu = 2.65*a - 1.692*r
-                af = 3.043*r
+            if(a/r >= 0.64):
+                tri = 4.071*l - 7.6024*si - 6.7187*a - 1.4297*r
+                di = 8.6024*si + 1.1*r + 5.0683*a - 3.071*l
+                alu = 2.6504*a - 1.692*r
+                af = 3.0432*r
 
             args['trisilicate'] = tri
             args['disilicate'] = di
