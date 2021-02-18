@@ -14,15 +14,16 @@ def calculate(request):
             wcr = form.cleaned_data['WCRatio']
             doh = form.cleaned_data['DegOfHydra']
 
-            wa = .24 * doh
-            wg = .18 * doh
-            vhp = .68 * doh
-            vg = .18 * doh
-            vc =  wcr - (.36 * doh)
-            vu = (1 - doh) * vc
-            pg = wg / vhp
-            pc = vc / vp
-            x = (.68 * doh) / ((.32 * doh) + wcr)
+            if(wcr > 0.42 * doh):
+                wa = .24 * doh
+                wg = .18 * doh
+                vhp = .68 * doh
+                vg = .18 * doh
+                vc =  wcr - (.36 * doh)
+                vu = (1 - doh) * vc
+                pg = wg / vhp
+                pc = vc / vp
+                x = (.68 * doh) / ((.32 * doh) + wcr)
 
             args['wa'] = wa
             args['wg'] = wg
