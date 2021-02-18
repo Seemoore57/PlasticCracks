@@ -8,7 +8,7 @@
   </head>
   <body>
     <header>Nav Bar Placeholder</header>
-    <div>
+    <div class="row">
         <h1>Bogue Calculator</h1>
     </div>
     <div class="row">
@@ -97,21 +97,57 @@
                             <li>Sulfur Trioxide</li>
                     </div>
                     <div class="col-5">
-                            <li>{{ form.sulfur }}></li>
+                            <li>{{ form.sulfur }}</li>
                     </div>
                 </div>
             </ul>
-            <div class="brow">
+            <div class="row">
                 <button type="submit">Compute</button>
             </div>
             </form>
         </div>
         <div class="col-1"></div>
         <div class="col-12 calc result">
-            <p>Enter in the percent of the weight each oxide in your cement mix takes up.</p>
-            <p>The table below the input will give the results of the mixture in the percent weight of the compounds comprising it.</p>
-            <p>This box will contain a bar graph showcasing the ratios of the inputs vs the outputs.</p>
-            <p>Press the arrow on the bottom right of the input to compute.</p>
+            <div class="crow">
+                <div class="col-12 title">
+                    <h3>Input</h3>
+                </div>
+                <div class="col-1"></div>
+                <div class="col-12 title">
+                    <h3>Results</h3>
+                </div>
+            </div>
+            <div class="crow">
+                <div class="col-12 chart">
+                    <div class="col-6 chart"></div>
+                    <div class="col-13 bar-container chart">
+                        <div class="bar leftover" style="height: {{ leftover2 }}%"></div>
+                        <div class="bar lime" style="height: {{ form.lime.value }}%"></div>
+                        <div class="bar silica" style="height: {{ form.silica.value }}%"></div>
+                        <div class="bar alumina" style="height: {{ form.alumina.value }}%"></div>
+                        <div class="bar ferric" style="height: {{ form.rust.value }}%"></div>
+                    </div>
+                    <div class="col-6 chart"></div>
+                </div>
+                <div class="col-1 chart"></div>
+                <div class="col-12 chart">
+                    <div class="col-6 chart"></div>
+                    <div class="col-13 bar-container chart">
+                        <div class="bar leftover" style="height: {{ leftover }}%"></div>
+                        <div class="bar trisilicate" style="height: {{ trisilicate }}%"></div>
+                        <div class="bar disilicate" style="height: {{ disilicate }}%"></div>
+                        <div class="bar trialumina" style="height: {{ trialumina }}%"></div>
+                        <div class="bar ferricalumina" style="height: {{ ferricalumina }}%"></div>
+                    </div>
+                    <div class="col-6 chart"></div>
+                </div>
+            </div>
+            <div class="crow">
+                <button type="submit">Compare</button>
+            </div>
+            <div class="crow">
+                <p>Compare will open a new bogue calculation with the old results replacing the input bar graph.</p>
+            </div>
         </div>
     </div>
     <div class="row">

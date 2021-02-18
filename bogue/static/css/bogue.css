@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 
-.row::after, .lrow::after, .brow {
+.row::after, .lrow::after, .brow::after, .crow::after {
   content: "";
   clear: both;
   display: table;
@@ -24,24 +24,34 @@ h1 {
     text-align: center;
 }
 
+h3{
+    text-align: center;
+}
+
 header {
     background-color: #555A72;
 }
 
 .calc {
     background-color: #D3D3E6;
+    text-align: center;
 }
 
 .row {
+    text-align: center;
     padding: 20px;
 }
 
 .lrow {
-
+    text-align: center;
 }
 
 .brow {
     text-align: center;
+}
+.crow{
+    text-align: center;
+    padding: 0px;
 }
 
 ul {
@@ -69,6 +79,63 @@ input {
 
 .but {
     align-content: center;
+}
+
+.chart{
+    overflow:hidden;
+    text-align: center;
+    height: 150px;
+    background: #D3D3E6;
+    padding: 0px;
+    border-radius: 0px;
+}
+
+.bar-container{
+    text-align: center;
+    width: 75%;
+    height: 100%;
+}
+
+.bar {
+    text-align: center;
+    width:100%;
+}
+
+.trisilicate{
+    background-color: yellow;
+}
+
+.disilicate{
+    background-color: orange;
+}
+
+.trialumina{
+    background-color: red;
+}
+
+.ferricalumina{
+    background-color: #66023C;
+}
+
+.lime{
+    background-color:white;
+}
+
+.silica{
+    background-color:cyan;
+}
+
+.alumina{
+    background-color:blue;
+}
+
+.ferric{
+    background-color:#8F00FF;
+}
+
+.title{
+    text-align: center;
+    padding: 0px;
 }
 
 .col-1 {width: 4%;}

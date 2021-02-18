@@ -24,11 +24,14 @@ def calculate(request):
                 di = 8.6024*si + 1.1*r + 5.0683*a - 3.071*l
                 alu = 2.6504*a - 1.692*r
                 af = 3.0432*r
+                leftover = 100 - tri - di - alu - af
 
             args['trisilicate'] = tri
             args['disilicate'] = di
             args['trialumina'] = alu
             args['ferricalumina'] = af
+            args['leftover'] = leftover
+            args['leftover2'] = 1 - l - si - a - r
             args['form'] = form
             return render(request, 'bogue/result.html', args)
     else:
