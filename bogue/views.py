@@ -2,6 +2,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
 from .forms import BogueCalculator
+from .forms import CompareForm
 # Create your views here.
 def index(request):
     form = BogueCalculator()
@@ -17,7 +18,6 @@ def calculate(request):
             si = form.cleaned_data['silica']
             a = form.cleaned_data['alumina']
             r = form.cleaned_data['rust']
-            su = form.cleaned_data['sulfur']
 
             if(a/r >= 0.64):
                 tri = 4.071*l - 7.6024*si - 6.7187*a - 1.4297*r
@@ -37,4 +37,39 @@ def calculate(request):
     else:
         form = BogueCalculator()
     return render(request, 'bogue/index.html', {'form':form})
+
+def compare(request):
+    if request.method == 'POST':
+        form = CompareForm(request.POST)
+        if form.is_valid():
+            #process data
+            form.oldLime.value = form.lime.value
+            form.oldSilica.value = form.silica.value
+            form.oldAlumina.value = form.alumina.value
+            form.oldRust.value = form.rust.value
+
+            args = {}
+            l = form.cleaned_data['lime']
+            si = form.cleaned_data['silica']
+            a = form.cleaned_data['alumina']
+            r = form.cleaned_data['rust']
+
+            if(a/r >= 0.64):
+                tri = 4.071*l - 7.6024*si - 6.7187*a - 1.4297*r
+                di = 8.6024*si + 1.1*r + 5.0683*a - 3.071*l
+                alu = 2.6504*a - 1.692*r
+                af = 3.0432*r
+                leftover = 100 - tri - di - alu - af
+
+            args['trisilicate'] = tri
+            args['disilicate'] = di
+            args['trialumina'] = alu
+            args['ferricalumina'] = af
+            args['leftover'] = leftover
+            args['leftover2'] = 1 - l - si - a - r
+            args['form'] = form
+            return render(request, 'bogue/compare.html', args)
+    else:
+        form = BogueCalculator()
+    return render(request, 'bogue/result.html', {'form':form})
     
