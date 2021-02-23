@@ -35,7 +35,7 @@ def calculate(request):
             args['pc'] = pc
             args['x'] = x
             args['form'] = form
-            return render(request, 'tcpowers/result.html', args)
+            return render(request, 'tcpowers/results.html', args)
     else:
         form = TCPowersCalc()
     return render(request, 'tcpowers/index.html', {'form':form})
