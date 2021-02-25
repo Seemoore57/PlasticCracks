@@ -11,7 +11,7 @@
     <div class="row">
         <h1>Bogue Calculator</h1>
     </div>
-    <form action="/bogue/result.html" method="post">
+    <form action="/bogue/compare2.html" method="post">
         {% csrf_token %}
     <div class="row">
         <div class="col-12 calc in">
@@ -95,22 +95,22 @@
         <div class="col-12 calc result">
             <div class="crow">
                 <div class="col-12 title">
-                    <h3>Input</h3>
+                    <h3>Old Results</h3>
                 </div>
                 <div class="col-1"></div>
                 <div class="col-12 title">
-                    <h3>Results</h3>
+                    <h3>New Results</h3>
                 </div>
             </div>
             <div class="crow">
                 <div class="col-12 chart">
                     <div class="col-6 chart"></div>
                     <div class="col-13 bar-container chart">
-                        <div class="bar leftover" style="height: {{ leftover2 }}%"></div>
-                        <div class="bar lime" style="height: {{ form.lime.value }}%"><div class="tooltip">Lime: {{ form.lime.value }}%</div></div>
-                        <div class="bar silica" style="height: {{ form.silica.value }}%"></div>
-                        <div class="bar alumina" style="height: {{ form.alumina.value }}%"></div>
-                        <div class="bar ferric" style="height: {{ form.rust.value }}%"></div>
+                        <div class="bar leftover" style="height: {{ request.session.leftover }}%"></div>
+                        <div class="bar trisilicate" style="height: {{ request.session.trisilicate }}%"></div>
+                        <div class="bar disilicate" style="height: {{ request.session.disilicate }}%"></div>
+                        <div class="bar trialumina" style="height: {{ request.session.trialumina }}%"></div>
+                        <div class="bar ferricalumina" style="height: {{ request.session.ferricalumina }}%"></div>
                     </div>
                     <div class="col-6 chart"></div>
                 </div>

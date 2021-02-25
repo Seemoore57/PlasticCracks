@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 
-.row::after, .lrow::after, .brow {
+.row::after, .lrow::after, .brow::after, .crow::after {
   content: "";
   clear: both;
   display: table;
@@ -24,24 +24,34 @@ h1 {
     text-align: center;
 }
 
+h3{
+    text-align: center;
+}
+
 header {
     background-color: #555A72;
 }
 
 .calc {
     background-color: #D3D3E6;
+    text-align: center;
 }
 
 .row {
+    text-align: center;
     padding: 20px;
 }
 
 .lrow {
-
+    text-align: center;
 }
 
 .brow {
     text-align: center;
+}
+.crow{
+    text-align: center;
+    padding: 0px;
 }
 
 ul {
@@ -69,6 +79,94 @@ input {
 
 .but {
     align-content: center;
+}
+
+.chart{
+    overflow:visible;
+    text-align: center;
+    height: 150px;
+    background: #D3D3E6;
+    padding: 0px;
+    border-radius: 0px;
+}
+
+.bar-container{
+    text-align: center;
+    width: 75%;
+    height: 100%;
+}
+
+.bar {
+    text-align: center;
+    width:100%;
+}
+
+.trisilicate{
+    background-color: yellow;
+}
+
+.disilicate{
+    background-color: orange;
+}
+
+.trialumina{
+    background-color: red;
+}
+
+.ferricalumina{
+    background-color: #66023C;
+}
+
+.lime{
+    position: relative;
+    background-color:white;
+}
+
+.silica{
+    background-color:cyan;
+}
+
+.alumina{
+    background-color:blue;
+}
+
+.ferric{
+    background-color:#8F00FF;
+}
+
+.title{
+    text-align: center;
+    padding: 0px;
+}
+
+.bar .tooltip{
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+
+    position: absolute;
+    z-index: 99;
+    margin-left: 105%;
+    margin-top:100%;
+}
+
+.bar .tooltip::after{
+    content: " ";
+    position: absolute;
+    top:37%;
+    right:100%;
+    margin-left:-5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent black transparent transparent;
+}
+
+.bar:hover .tooltip{
+    visibility: visible;
 }
 
 .col-1 {width: 4%;}
