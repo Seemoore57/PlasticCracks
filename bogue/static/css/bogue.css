@@ -97,6 +97,7 @@ input {
 }
 
 .bar {
+    position: relative;
     text-align: center;
     width:100%;
 }
@@ -118,8 +119,7 @@ input {
 }
 
 .lime{
-    position: relative;
-    background-color:white;
+    background-color:lightgreen;
 }
 
 .silica{
@@ -139,7 +139,7 @@ input {
     padding: 0px;
 }
 
-.bar .tooltip{
+.tooltip{
     visibility: hidden;
     width: 120px;
     background-color: black;
@@ -150,19 +150,57 @@ input {
 
     position: absolute;
     z-index: 99;
-    margin-left: 105%;
-    margin-top:100%;
+    left: 138%;
+    top:50%;
+    -ms-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
 }
 
-.bar .tooltip::after{
-    content: " ";
+.tooltip::after{
+    content: "";
     position: absolute;
-    top:37%;
-    right:100%;
+    top:50%;
+    right:96%;
     margin-left:-5px;
     border-width: 5px;
     border-style: solid;
     border-color: transparent black transparent transparent;
+    -ms-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+}
+
+.rtooltip{
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+
+    position: absolute;
+    z-index: 99;
+    right: 70%;
+    top:50%;
+    -ms-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+}
+
+.rtooltip::after{
+    content: "";
+    position: absolute;
+    top:50%;
+    left:108%;
+    margin-left:-5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent transparent black;
+    -ms-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+}
+
+.bar:hover .rtooltip{
+    visibility: visible;
 }
 
 .bar:hover .tooltip{

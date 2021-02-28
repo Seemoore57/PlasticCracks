@@ -108,9 +108,9 @@
                     <div class="col-13 bar-container chart">
                         <div class="bar leftover" style="height: {{ leftover2 }}%"></div>
                         <div class="bar lime" style="height: {{ form.lime.value }}%"><div class="tooltip">Lime: {{ form.lime.value }}%</div></div>
-                        <div class="bar silica" style="height: {{ form.silica.value }}%"></div>
-                        <div class="bar alumina" style="height: {{ form.alumina.value }}%"></div>
-                        <div class="bar ferric" style="height: {{ form.rust.value }}%"></div>
+                        <div class="bar silica" style="height: {{ form.silica.value }}%"><div class="tooltip">Silica: {{ form.silica.value }}%</div></div>
+                        <div class="bar alumina" style="height: {{ form.alumina.value }}%"><div class="tooltip">Alumina: {{ form.alumina.value }}%</div></div>
+                        <div class="bar ferric" style="height: {{ form.rust.value }}%"><div class="tooltip">Ferric: {{ form.rust.value }}%</div></div>
                     </div>
                     <div class="col-6 chart"></div>
                 </div>
@@ -119,10 +119,10 @@
                     <div class="col-6 chart"></div>
                     <div class="col-13 bar-container chart">
                         <div class="bar leftover" style="height: {{ leftover }}%"></div>
-                        <div class="bar trisilicate" style="height: {{ trisilicate }}%"></div>
-                        <div class="bar disilicate" style="height: {{ disilicate }}%"></div>
-                        <div class="bar trialumina" style="height: {{ trialumina }}%"></div>
-                        <div class="bar ferricalumina" style="height: {{ ferricalumina }}%"></div>
+                        <div class="bar trisilicate" style="height: {{ trisilicate }}%"><div class="rtooltip">C<sub>3</sub>S: {{ trisilicate|floatformat:2 }}%</div></div>
+                        <div class="bar disilicate" style="height: {{ disilicate }}%"><div class="rtooltip">C<sub>2</sub>S: {{ disilicate|floatformat:2 }}%</div></div>
+                        <div class="bar trialumina" style="height: {{ trialumina }}%"><div class="rtooltip">C<sub>3</sub>A: {{ trialumina|floatformat:2 }}%</div></div>
+                        <div class="bar ferricalumina" style="height: {{ ferricalumina }}%"><div class="rtooltip">C<sub>4</sub>AF: {{ ferricalumina|floatformat:2 }}%</div></div>
                     </div>
                     <div class="col-6 chart"></div>
                 </div>
@@ -158,7 +158,7 @@
                         <li>tricalcium silicate</li>
                     </div>
                     <div class="col-7">
-                        <li>{{ trisilicate }}%</li>
+                        <li>{{ trisilicate|floatformat:2 }}%</li>
                     </div>
                 </div>
                 <div class="lrow">
@@ -169,7 +169,7 @@
                         <li>dicalcium silicate</li>
                     </div>
                     <div class="col-7">
-                        <li>{{ disilicate }}%</li>
+                        <li>{{ disilicate|floatformat:2 }}%</li>
                     </div>
                 </div>
                 <div class="lrow">
@@ -180,7 +180,7 @@
                         <li>tricalcium aluminate</li>
                     </div>
                     <div class="col-7">
-                        <li>{{ trialumina }}%</li>
+                        <li>{{ trialumina|floatformat:2 }}%</li>
                     </div>
                 </div>
                 <div class="lrow">
@@ -191,7 +191,7 @@
                         <li>calcium aluminoferrite</li>
                     </div>
                     <div class="col-7">
-                        <li>{{ ferricalumina }}%</li>
+                        <li>{{ ferricalumina|floatformat:2 }}%</li>
                     </div>
                 </div>
             </ul>
