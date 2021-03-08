@@ -139,7 +139,7 @@ input {
     padding: 0px;
 }
 
-.tooltip{
+.ltooltip{
     visibility: hidden;
     width: 120px;
     background-color: black;
@@ -156,7 +156,7 @@ input {
     transform: translate(-50%,-50%);
 }
 
-.tooltip::after{
+.ltooltip::after{
     content: "";
     position: absolute;
     top:50%;
@@ -203,7 +203,7 @@ input {
     visibility: visible;
 }
 
-.bar:hover .tooltip{
+.bar:hover .ltooltip{
     visibility: visible;
 }
 
