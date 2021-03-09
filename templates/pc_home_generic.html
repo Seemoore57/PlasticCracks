@@ -19,6 +19,7 @@
     <!-- Add additional CSS in static file -->
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bogue.css' %}">
 </head>
 <body>
 <div class="flex-container">
@@ -61,23 +62,22 @@
 </div>
 <div class="container-fluid">
     <div class="row" style="height: 49pc;">
-        <div class="col-3"
-             style=" font-family: Lucida Console,serif; color: lightgray; background-color: #3D4257;">
+        <div class="col-12" style="background-color: #3D4257;">
+        <div id="sidebar" class="collapse width multi-collapse"
+             style=" font-family: Lucida Console,serif; color: lightgray; background-color: #3D4257; position:absolute; height:100%;">
             {% block sidebar %}
                 <nav class="nav flex-column" style="padding: 5pc">
-                    <a class="nav-link" href="#" style="color: lightgray">Plastic Cracks</a>
+                    <button class="btn btn-secondary" data-toggle="collapse" data-target=".multi-collapse" style="position: absolute; right:0%; top: 0;">X</button>
+                    <a class="nav-link" href="/" style="color: lightgray">Plastic Cracks</a>
                     <a class="nav-link" href="/bogue" style="color: lightgray">Bogue</a>
                     <a class="nav-link" href="/tcpowers" style="color: lightgray">TC Powers</a>
                     <a class="nav-link" href="/mixdesign" style="color: lightgray">Mixed Design</a>
                 </nav>
             {% endblock %}
         </div>
-        <div class="col-6" style="background-color: #3D4257;">
+        <button id="sidebar-Button" class="collapse width show multi-collapse btn btn-secondary" data-toggle="collapse" data-target=".multi-collapse" style="left:1%; margin: 0; position: absolute; top: 50%; transform: translate(-50%, -50%);">></button>
             {% block content %}
             {% endblock %}
-        </div>
-        <div class="col-3" style="background-color: #3D4257;">
-
         </div>
     </div>
 </div>
