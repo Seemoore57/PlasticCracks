@@ -6,3 +6,5 @@ from django.http import HttpResponse
 def index(request):
     return render(request, 'mixdesign/index.html')
 
+def output(request):
+    return render(request, 'mixdesign/output.html')
