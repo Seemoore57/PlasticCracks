@@ -1,8 +1,9 @@
 from django.shortcuts import render
 
-
+from .forms import TCPowersCalc
 # Create your views here.
 def index(request):
+    form = TCPowersCalc()
     return render(request, 'tcpowers/index.html')
 
 def calculate(request):
