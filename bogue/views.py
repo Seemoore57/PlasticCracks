@@ -24,6 +24,23 @@ def calculate(request):
                 alu = 2.6504*a - 1.692*r
                 af = 3.0432*r
                 leftover = 100 - tri - di - alu - af
+            else:
+                tri = 4.071 * l - 7.6024 * si - 4.479 * a - 2.859 * r
+                di = 8.6024 * si + 0.7544 * tri
+                alu = 0
+                af = 2.1 * a + 1.702 * r
+                leftover = 100 - tri - di - alu - af
+
+            if(tri < 0):
+                tri = 0
+            if (di < 0):
+                di = 0
+            if (alu < 0):
+                alu = 0
+            if (af < 0):
+                af = 0
+            if (leftover < 0):
+                leftover = 0
 
             args['trisilicate'] = tri
             args['disilicate'] = di
@@ -54,6 +71,23 @@ def compare(request):
                 alu = 2.6504*a - 1.692*r
                 af = 3.0432*r
                 leftover = 100 - tri - di - alu - af
+            else:
+                tri = 4.071 * l - 7.6024 * si - 4.479 * a - 2.859 * r
+                di = 8.6024 * si + 0.7544 * tri
+                alu = 0
+                af = 2.1 * a + 1.702 * r
+                leftover = 100 - tri - di - alu - af
+
+            if (tri < 0):
+                tri = 0
+            if (di < 0):
+                di = 0
+            if (alu < 0):
+                alu = 0
+            if (af < 0):
+                af = 0
+            if (leftover < 0):
+                leftover = 0
 
             args['trisilicate'] = tri
             args['disilicate'] = di
@@ -91,6 +125,23 @@ def compare2(request):
                 alu = 2.6504*a - 1.692*r
                 af = 3.0432*r
                 leftover = 100 - tri - di - alu - af
+            else:
+                tri = 4.071 * l - 7.6024 * si - 4.479 * a - 2.859 * r
+                di = 8.6024 * si + 0.7544 * tri
+                alu = 0
+                af = 2.1 * a + 1.702 * r
+                leftover = 100 - tri - di - alu - af
+
+            if (tri < 0):
+                tri = 0
+            if (di < 0):
+                di = 0
+            if (alu < 0):
+                alu = 0
+            if (af < 0):
+                af = 0
+            if (leftover < 0):
+                leftover = 0
 
             args['trisilicate'] = tri
             args['disilicate'] = di

@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+<html>
+  <head>
 <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -7,22 +10,8 @@
 
     <title>Mix Design Calculator</title>
   </head>
-  <body>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
-    <section class="bg-primary text-center">
-     <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-12">
-                <h>
-                Nav bar place holder
-                </h>
-            </div>
-        </div>
-     </div>
-    </section>
+{% extends "pc_home_generic.html" %}
+    {% block content %}
     <section>
         <div class="container-fluid">
             <div class="row" style="background-color:#3D4257;">
@@ -45,6 +34,9 @@
                             </div>
                             <div class="col">
                                 1ft3
+                            </div>
+                            <div class="col">
+                                1yd3
                             </div>
                             <div class="col">
                                 SSD mix amount(ft3)
@@ -70,7 +62,7 @@
                             <div class="col">
                                 <div id="cement-ft3"></div>
                                 <script>
-                                    document.getElementById("cement-ft3").innerHTML = localStorage.getItem("Cement-ft3");
+                                    document.getElementById("cement-ft3").innerHTML = localStorage.getItem("Cement-ft3").toPrecision(2);
                                 </script>
                             </div>
                             <div class="col">
@@ -80,9 +72,15 @@
                                 </script>
                             </div>
                             <div class="col">
+                                <div id="cement-1yd3"></div>
+                                <script>
+                                    document.getElementById("cement-1ft3").innerHTML = localStorage.getItem("Cement-1yd3");
+                                </script>
+                            </div>
+                            <div class="col">
                                 <div id="cement-ssd-ft3"></div>
                                 <script>
-                                    document.getElementById("cement-ssd-ft3").innerHTML = localStorage.getItem("Cement-ft3-SSD");
+                                    document.getElementById("cement-ssd-ft3").innerHTML = localStorage.getItem("Cement-SSD-ft3");
                                 </script>
                             </div>
                             <div class="col">
@@ -97,29 +95,187 @@
                         </div>
                         <div class="row">
                             Fly Ash
+                            <div class="col">
+                                <div id="fly-ash"></div>
+                                <script>
+                                    document.getElementById("fly-ash").innerHTML = localStorage.getItem("FlyAsh")
+                                </script>
+                            </div>
+                            <div class="col">
+
+                            </div>
+                            <div class="col">
+
+                            </div>
+                            <div class="col">
+
+                            </div>
+                            <div class="col">
+
+                            </div>
+                            <div class="col">
+
+                            </div>
+                            <div class="col">
+
+                            </div>
+                            <div class="col">
+
+                            </div>
                         </div>
                         <div class="row">
                             Blast Furnace Slag
+                            <div>
+                            <div id="bf-slag"></div>
+                                <script>
+                                    document.getElementById("bf-slag").innerHTML = localStorage.getItem("FlyAsh")
+                                </script>
+                            </div>
+                            <div class="col">
+
+                            </div>
+                            <div class="col">
+
+                            </div>
+                            <div class="col">
+
+                            </div>
+                            <div class="col">
+
+                            </div>
+                            <div class="col">
+
+                            </div>
+                            <div class="col">
+
+                            </div>
                         </div>
                         <div class="row">
                             Water
+                            <div class="col">
+                            <div id="water"></div>
+                                <script>
+                                    document.getElementById("water").innerHTML = localStorage.getItem("Water")
+                                </script>
+                            </div>
+                            <div class="col">
+
+                            </div>
+                            <div class="col">
+
+                            </div>
+                            <div class="col">
+
+                            </div>
+                            <div class="col">
+
+                            </div>
+                            <div class="col">
+
+                            </div>
+                            <div class="col">
+
+                            </div>
+                            <div class="col">
+
+                            </div>
                         </div>
                         <div class="row">
                             Fine Aggregates
+                            <div>
+                            <div id="fa"></div>
+                                <script>
+                                    document.getElementById("fa").innerHTML = localStorage.getItem("FA")
+                                </script>
+                            </div>
+                            <div class="col">
+
+                            </div>
+                            <div class="col">
+
+                            </div>
+                            <div class="col">
+
+                            </div>
+                            <div class="col">
+
+                            </div>
+                            <div class="col">
+
+                            </div>
+                            <div class="col">
+
+                            </div>
+                            <div class="col">
+
+                            </div>
                         </div>
                         <div class="row">
                             Course Aggregates
+                            <div id="ca"></div>
+                                <script>
+                                    document.getElementById("ca").innerHTML = localStorage.getItem("CA")
+                                </script>
+                            </div>
+                        <div class="col">
+
+                        </div>
+                        <div class="col">
+
+                        </div>
+                        <div class="col">
+
+                        </div>
+                        <div class="col">
+
+                        </div>
+                        <div class="col">
+
+                        </div>
+                        <div class="col">
+
+                        </div>
+                        <div class="col">
+
+                        </div>
                         </div>
                         <div class="row">
                             Air
+                            <div id="fly-ash"></div>
+                                <script>
+                                    document.getElementById("fly-ash").innerHTML = localStorage.getItem("FlyAsh")
+                                </script>
+
+                            <div class="col">
+
+                            </div>
+                            <div class="col">
+
+                            </div>
+                            <div class="col">
+
+                            </div>
+                            <div class="col">
+
+                            </div>
+                            <div class="col">
+
+                            </div>
+                            <div class="col">
+
+                            </div>
+                            <div class="col">
+
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-3">
-
+                    <div class="jumbotron"style="background-color:#D3D3E6;">
+                        hello
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-  </body>
-</html>
+{% endblock %}
