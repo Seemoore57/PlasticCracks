@@ -53,7 +53,7 @@
                     <li>W<sub>a</sub></li>
                 </div>
                 <div class="colu-7">
-                    <li>- %</li>
+                    <li>{{ wa|floatformat:2 }}%</li>
                 </div>
             </div>
             <div class="lrow">
@@ -61,7 +61,7 @@
                     <li>W<sub>g</sub></li>
                 </div>
                 <div class="colu-7">
-                    <li>- %</li>
+                    <li>{{ wg|floatformat:2 }}%</li>
                 </div>
             </div>
             <div class="lrow">
@@ -69,7 +69,7 @@
                     <li>V<sub>g</sub></li>
                 </div>
                 <div class="colu-7">
-                    <li>- %</li>
+                    <li>{{ vg|floatformat:2 }}%</li>
                 </div>
             </div>
             <div class="lrow">
@@ -77,7 +77,7 @@
                     <li>V<sub>hp</sub></li>
                 </div>
                 <div class="colu-7">
-                    <li>- %</li>
+                    <li>{{ vhp|floatformat:2 }}%</li>
                 </div>
             </div>
             <div class="lrow">
@@ -85,7 +85,7 @@
                     <li>V<sub>c</sub></li>
                 </div>
                 <div class="colu-7">
-                    <li>- %</li>
+                    <li>{{ vc|floatformat:2 }}%</li>
                 </div>
             </div>
             <div class="lrow">
@@ -93,7 +93,7 @@
                     <li>V<sub>u</sub></li>
                 </div>
                 <div class="colu-7">
-                    <li>- %</li>
+                    <li>{{ vu|floatformat:2 }}%</li>
                 </div>
             </div>
             <div class="lrow">
@@ -101,7 +101,7 @@
                     <li>P<sub>r</sub></li>
                 </div>
                 <div class="colu-7">
-                    <li>- %</li>
+                    <li>{{ pr|floatformat:2 }}%</li>
                 </div>
             </div>
             <div class="lrow">
@@ -109,7 +109,7 @@
                     <li>P<sub>c</sub></li>
                 </div>
                 <div class="colu-7">
-                    <li>- %</li>
+                    <li>{{ pc|floatformat:2 }}%</li>
                 </div>
             </div>
             <div class="lrow">
@@ -117,10 +117,34 @@
                     <li>X</li>
                 </div>
                 <div class="colu-7">
-                    <li>- %</li>
+                    <li>{{ x|floatformat:2 }}%</li>
                 </div>
             </div>
         </ul>
+    </div>
+</div>
+<div class="colu-12 calc result">
+    <div class="crow">
+        <div class="colu-1"></div>
+        <div class="colu-12 title">
+            <h3>Results</h3>
+        </div>
+    </div>
+    <div class="crow">
+        <div class="colu-12 chart">
+        </div>
+        <div class="colu-12 chart">
+            <div class="colu-6 chart"></div>
+            <div class="colu-13 bar-container chart">
+                <div class="bar trisilicate" style="height: {{ vc }}%"><div class="ltooltip">Capillary Pores: {{ vc }}%</div></div>
+                <div class="bar disilicate" style="height: {{ vg }}%"><div class="ltooltip">Gel Pores: {{ vg }}%</div></div>
+                <div class="bar trialumina" style="height: {{ vhp }}%"><div class="ltooltip">Hydration Products: {{ vhp }}%</div></div>
+            </div>
+            <div class="colu-6 chart"></div>
+        </div>
+    </div>
+    <div class="crow">
+        <button type="submit" class="btn btn-primary" method="post">Compare</button>
     </div>
 </div>
 {% endblock %}

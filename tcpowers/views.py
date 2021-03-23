@@ -23,20 +23,22 @@ def calculate(request):
                 vc =  wcr - (.36 * doh)
                 vu = (1 - doh) * vc
                 pg = wg / vhp
-                pc = vc / vp
+                pc = vc / (wcr + vc)
                 x = (.68 * doh) / ((.32 * doh) + wcr)
 
-            args['wa'] = wa
-            args['wg'] = wg
-            args['vhp'] = vhp
-            args['vg'] = wg
-            args['vc'] = vc
-            args['vu'] = vu
-            args['pg'] = pg
-            args['pc'] = pc
-            args['x'] = x
-            args['form'] = form
-            return render(request, 'tcpowers/results.html', args)
+                args['wa'] = wa
+                args['wg'] = wg
+                args['vhp'] = vhp
+                args['vg'] = wg
+                args['vc'] = vc
+                args['vu'] = vu
+                args['pg'] = pg
+                args['pc'] = pc
+                args['x'] = x
+                args['form'] = form
+                return render(request, 'tcpowers/result.html', args)
+            else:
+                form = TCPowersCalc()
     else:
         form = TCPowersCalc()
     return render(request, 'tcpowers/index.html', {'form':form})
