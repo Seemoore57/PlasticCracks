@@ -1,0 +1,13 @@
+{% extends "pc_home_generic.html" %}
+{% block content %}
+    <h1>Registration</h1>
+    <div class="colu-6"></div>
+    <div class="colu-13 calc" style="border-radius: 15px;">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Register</button>
+        </form>
+    </div>
+    <div class="colu-6"></div>
+{% endblock %}

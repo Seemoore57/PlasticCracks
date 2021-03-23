@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'registration.apps.RegistrationConfig',
     'pccalc.apps.PccalcConfig',
     'tcpowers.apps.TcpowersConfig',
     'mixdesign.apps.MixdesignConfig',
