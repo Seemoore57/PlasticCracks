@@ -1,0 +1,479 @@
+          <div class="row" style="width:100%;">
+           <div class="col" style="width:100%;">
+               <div class="jumbotron" style="background-color:#D3D3E6; width:100%">
+                   <div class="row">
+                       <div class="col"></div>
+                       <div class="col">Amount</div>
+                       <div class="col">Specific Gravity</div>
+                   </div>
+                   <div class="row">
+                       <div class="col">
+                           Cement
+                       </div>
+                       <div class="col">
+                           <div class="form-group">
+                               <input type="number" class="form-control" id="Cement">
+                               <script>
+                                   document.getElementById('Cement').onkeyup = function(){
+                                       var Cement = this.valueAsNumber;
+                                       localStorage.setItem('Cement',Cement);
+                                   }
+                               </script>
+                           </div>
+                       </div>
+                       <div class="col"></div>
+                   </div>
+                       <div class="col"></div>
+                       <div class="row">
+                           <div class="col">Fly Ash</div>
+                           <div class="col">
+                               <div class="form-group">
+                                   <input type="number" class="form-control" id="FlyAsh">
+                                   <script>
+                                       document.getElementById('FlyAsh').onkeyup = function(){
+                                           var FlyAsh = this.valueAsNumber;
+                                           localStorage.setItem('FlyAsh',FlyAsh);
+                                       }
+                                   </script>
+                               </div>
+                           </div>
+                           <div class="col">
+                               <div class="form-group">
+                                   <input type="number" class="form-control" id="SG-FlyAsh">
+                                   <script>
+                                       document.getElementById('SG-FlyAsh').onkeyup = function(){
+                                           var SGFlyAsh = this.valueAsNumber;
+                                           localStorage.setItem('SG-FlyAsh',SGFlyAsh);
+                                       }
+                                   </script>
+                               </div>
+                           </div>
+                       </div>
+                           <div class="row">
+                               <div class="col">Slag</div>
+                               <div class="col">
+                                   <div class="form-group">
+                                       <input type="number" class="form-control" id="Slag">
+                                       <script>
+                                           document.getElementById('Slag').onkeyup = function(){
+                                               var Slag = this.valueAsNumber;
+                                               localStorage.setItem('Slag',Slag);
+                                           }
+                                       </script>
+                                   </div>
+                               </div>
+                               <div class="col">
+                                   <div class="form-group">
+                                       <input type="number" class="form-control" id="SG-Slag">
+                                       <script>
+                                           document.getElementById('SG-Slag').onkeyup = function(){
+                                               var SGSlag = this.valueAsNumber;
+                                               localStorage.setItem('SG-Slag',SGSlag);
+                                           }
+                                       </script>
+                                   </div>
+                               </div>
+                           </div>
+                               <div class="row">
+                                   <div class="col">Water</div>
+                                   <div class="col">
+                                       <div class="form-group">
+                                           <input type="number" class="form-control" id="Water">
+                                           <script>
+                                               document.getElementById('Water').onkeyup = function(){
+                                                   var Water = this.valueAsNumber;
+                                                   localStorage.setItem('Water',Water);
+                                               }
+                                           </script>
+                                       </div>
+                                   </div>
+                                   <div class="col"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">Fine Aggregates</div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <input type="number" class="form-control" id="FA">
+                                            <script>
+                                                document.getElementById('FA').onkeyup = function(){
+                                                    var FA = this.valueAsNumber;
+                                                    localStorage.setItem('FA',FA);
+                                                }
+                                            </script>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <input type="number" class="form-control" id="SG-FA">
+                                            <script>
+                                                document.getElementById('SG-FA').onkeyup = function(){
+                                                    var SGFA = this.valueAsNumber;
+                                                    localStorage.setItem('SG-FA',SGFA);
+                                                }
+                                            </script>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">Course Aggregates</div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <input type="number" class="form-control" id="CA">
+                                            <script>
+                                                document.getElementById('CA').onkeyup = function(){
+                                                    var CA = this.valueAsNumber;
+                                                    localStorage.setItem('CA',CA);
+                                                }
+                                            </script>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <input type="number" class="form-control" id="SG-FlyAsh">
+                                            <script>
+                                                document.getElementById('SG-FlyAsh').onkeyup = function(){
+                                                    var SGFlyAsh = this.valueAsNumber;
+                                                    localStorage.setItem('SG-FlyAsh',SGFlyAsh);
+                                                }
+                                            </script>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">Air Entrained?</div>
+                                    <div class="col">
+                                        <label><input type="checkbox" id="airYes"> Yes</label>
+                                        <label><input type="checkbox" id="'airNo"> No</label>
+                                    </div>
+                                    <div class="col"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">W/C ratio</div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="CA">
+                                            <script>
+                                                document.getElementById('CA').onkeyup = function(){
+                                                    var CA = this.valueAsNumber;
+                                                    localStorage.setItem('CA',CA);
+                                                }
+                                            </script>
+                                        </div>
+                                    </div>
+                                    <div class="col"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col"></div>
+                                    <div class="col">
+                                         <button type="button" class="btn btn-info" value="Input Button" onclick="relocate_home()">Compute</button>
+                                         <script>
+                                            function relocate_home()
+                                            {
+                                                location.href = "output.html";
+                                                <!--- ft3 ----->
+                                                var cement_ft3 = localStorage.getItem('Cement') /(3.15*62.4) ;
+                                                localStorage.setItem('Cement-ft3',cement_ft3);
+
+                                                var fly_ash_ft3 = localStorage.getItem('Fly-Ash')/(localStorage.getItem('SG-FlyAsh')*62.4);
+                                                localStorage.setItem('Fly-Ash-ft3', fly_ash_ft3);
+
+                                                var slag_ft3 = localStorage.getItem('Slag')/(localStorage.getItem('SG-Slag')*62.4);
+                                                localStorage.setItem('Slag-ft3', slag_ft3);
+
+                                                var water_ft3 = localStorage.getItem('Water')/(1.0*62.4);
+                                                localStorage.setItem('Water-ft3', water_ft3);
+
+                                                var FA_ft3 = localStorage.getItem('FA')/(localStorage.getItem('SG-FA')*62.4);
+                                                localStorage.setItem('FA-ft3', FA_ft3);
+
+                                                var CA_ft3 = localStorage.getItem('CA')/(localStorage.getItem('SG-CA')*62.4);
+                                                localStorage.setItem('CA-ft3', CA_ft3);
+
+                                                var Air_ft3 = ((localStorage.getItem('Cement-ft3')+
+                                                                localStorage.getItem('Fly-Ash-ft3')+
+                                                                localStorage.getItem('Slag-ft3')+
+                                                                localStorage.getItem('Water-ft3')+
+                                                                localStorage.getItem('FA-ft3'))/(0.94))-
+                                                                (localStorage.getItem('Cement-ft3')+
+                                                                localStorage.getItem('Fly-Ash-ft3')+
+                                                                localStorage.getItem('Slag-ft3')+
+                                                                localStorage.getItem('Water-ft3')+
+                                                                localStorage.getItem('FA-ft3'));
+                                                localStorage.setItem('Air-ft3', Air_ft3);
+
+                                                <!--- Subtotal of Ingredients ----->
+                                                var total_lbs = localStorage.getItem('Cement')+
+                                                                localStorage.getItem('Fly-Ash')+
+                                                                localStorage.getItem('Slag')+
+                                                                localStorage.getItem('Water')+
+                                                                localStorage.getItem('FA')+
+                                                                localStorage.getItem('CA');
+                                                localStorage.setItem('Total-LBS', total_lbs);
+
+                                                <!--- total ft3 ----->
+                                                var total_ft3 = localStorage.getItem('Cement-ft3')+
+                                                                localStorage.getItem('Fly-Ash-ft3')+
+                                                                localStorage.getItem('Slag-ft3')+
+                                                                localStorage.getItem('Water-ft3')+
+                                                                localStorage.getItem('FA-ft3')+
+                                                                localStorage.getItem('CA-ft3')+
+                                                                localStorage.getItem('Air-ft3');
+                                                localStorage.setItem('Total-ft3',total_ft3);
+
+                                                <!--- 1ft3 ----->
+                                                var cement_1ft3 = localStorage('Total-ft3')/localStorage('Cement-ft3');
+                                                localStorage.setItem('Cement-1ft3', cement_1ft3);
+
+                                                var fly_ash_1ft3 = localStorage('Total-ft3')/localStorage('Fly-Ash-ft3');
+                                                localStorage.setItem('Fly-Ash-1ft3', fly_ash_1ft3);
+
+                                                var slag_1ft3 = localStorage('Total-ft3')/localStorage('Slag-ft3');
+                                                localStorage.setItem('Slag-1ft3', slag_1ft3);
+
+                                                var water_1ft3 = localStorage('Total-ft3')/localStorage('Water-ft3');
+                                                localStorage.setItem('Water-1ft3', water_1ft3);
+
+                                                var FA_1ft3 = localStorage('Total-ft3')/localStorage('FA-ft3');
+                                                localStorage.setItem('FA-1ft3', FA_1ft3);
+
+                                                var CA_1ft3 = localStorage('Total-ft3')/localStorage('CA-ft3');
+                                                localStorage.setItem('CA-1ft3', CA_1ft3);
+
+                                                var air_1ft3 = localStorage('Total-ft3')/localStorage('Air-ft3');
+                                                localStorage.setItem('Air-1ft3', air_1ft3);
+
+                                                var total_1ft3 = localStorage.getItem('Cement-1ft3')+
+                                                                localStorage.getItem('Fly-Ash-1ft3')+
+                                                                localStorage.getItem('Slag-1ft3')+
+                                                                localStorage.getItem('Water-1ft3')+
+                                                                localStorage.getItem('FA-1ft3')+
+                                                                localStorage.getItem('CA-1ft3')
+                                                                localStorage.getItem('Air-1ft3');
+                                                localStorage.setItem('Total-1ft3', total_1ft3);
+
+                                                <!--- 1yd3 ----->
+                                                var cement_1yd3 = localStorage('Cement-ft3') * 27;
+                                                localStorage.setItem('Cement-1yd3', cement_1yd3);
+
+                                                var fly_ash_1yd3 = localStorage('Fly-Ash-ft3') * 27;
+                                                localStorage.setItem('Fly-Ash-1yd3', fly_ash_1yd3);
+
+                                                var slag_1yd3 = localStorage('Slag-ft3') * 27;
+                                                localStorage.setItem('Slag-1yd3', slag_1yd3);
+
+                                                var water_1yd3 = localStorage('Water-ft3') * 27;
+                                                localStorage.setItem('Water-1yd3', water_1yd3);
+
+                                                var FA_1yd3 = localStorage('FA-ft3') * 27;
+                                                localStorage.setItem('FA-1yd3', FA_1yd3);
+
+                                                var CA_1yd3 = localStorage('CA-ft3') * 27;
+                                                localStorage.setItem('CA-1yd3', CA_1yd3);
+
+                                                var air_1yd3 = localStorage('Air-ft3') * 27;
+                                                localStorage.setItem('Air-1yd3', air_1yd3);
+
+                                                var total_1yd3 = localStorage.getItem('Cement-1yd3')+
+                                                                localStorage.getItem('Fly-Ash-1yd3')+
+                                                                localStorage.getItem('Slag-1yd3')+
+                                                                localStorage.getItem('Water-1yd3')+
+                                                                localStorage.getItem('FA-1yd3')+
+                                                                localStorage.getItem('CA-1yd3')
+                                                                localStorage.getItem('Air-1yd3');
+                                                localStorage.setItem('Total-1yd3', total_1yd3);
+
+                                                <!--- SSD-ft3 ----->
+                                                var cement_ssd_ft3 = localStorage('Cement-1ft3') * localStorage('Mix_Volume');
+                                                localStorage.setItem('Cement-SSD-ft3', cement_ssd_ft3);
+
+                                                var fly_ash_ssd_ft3 = localStorage('Fly-Ash-1ft3') * localStorage('Mix_Volume');
+                                                localStorage.setItem('Fly-Ash-SSD-ft3', fly_ash_ssd_ft3);
+
+                                                var slag_ssd_ft3 = localStorage('Slag-1ft3') * localStorage('Mix_Volume');
+                                                localStorage.setItem('Slag-SSD-ft3', slag_ssd_ft3);
+
+                                                var water_ssd_ft3 = localStorage('Water-1ft3') * localStorage('Mix_Volume');
+                                                localStorage.setItem('Water-SSD-ft3', water_ssd_ft3);
+
+                                                var FA_ssd_ft3 = localStorage('FA-1ft3') * localStorage('Mix_Volume');
+                                                localStorage.setItem('FA-SSD-ft3', FA_ssd_ft3);
+
+                                                var CA_ssd_ft3 = localStorage('CA-1ft3') * localStorage('Mix_Volume');
+                                                localStorage.setItem('CA-SSD-ft3', CA_ssd_ft3);
+
+                                                var air_ssd_ft3 = localStorage('Air-1ft3') * localStorage('Mix_Volume');
+                                                localStorage.setItem('Air-SSD-ft3', air_ssd_ft3);
+
+                                                var total_SSD_ft3 = localStorage.getItem('Cement-SSD-ft3')+
+                                                                 localStorage.getItem('Fly-Ash-SSD-ft3')+
+                                                                 localStorage.getItem('Slag-SSD-ft3')+
+                                                                 localStorage.getItem('Water-SSD-ft3')+
+                                                                 localStorage.getItem('FA-SSD-ft3')+
+                                                                 localStorage.getItem('CA-SSD-ft3')+
+                                                                 localStorage.getItem('Air-SSD-ft3');
+                                                localStorage.setItem('Total-SSD-ft3', total_SSD_ft3);
+
+                                                <!--- SSD-LBS ----->
+                                                var cement_ssd_lbs = localStorage('Cement-SSD-ft3') * 3.15 * 62.4;
+                                                localStorage.setItem('Cement-SSD-LBS', cement_ssd_lbs);
+
+                                                var fly_ash_ssd_lbs = localStorage('Fly-Ash-SSD-ft3') * 2.5 * 62.4;
+                                                localStorage.setItem('Fly-Ash-SSD-LBS', fly_ash_ssd_lbs);
+
+                                                var slag_ssd_lbs = localStorage('Slag-SSD-ft3') * 2.8 * 62.4;
+                                                localStorage.setItem('Slag-SSD-LBS', slag_ssd_lbs);
+
+                                                var water_ssd_lbs = localStorage('Water-SSD-ft3') * 1.0 * 62.4;
+                                                localStorage.setItem('Water-SSD-LBS', water_ssd_lbs);
+
+                                                var FA_ssd_lbs = localStorage('FA-SSD-ft3') * 2.5 * 62.4;
+                                                localStorage.setItem('FA-SSD-LBS', FA_ssd_lbs);
+
+                                                var CA_ssd_lbs = localStorage('CA-SSD-ft3') * 2.6 * 62.4;
+                                                localStorage.setItem('CA-SSD-LBS', CA_ssd_lbs);
+
+                                                var total_SSD_LBS = localStorage.getItem('Cement-SSD-LBS')+
+                                                                 localStorage.getItem('Fly-Ash-SSD-LBS')+
+                                                                 localStorage.getItem('Slag-SSD-LBS')+
+                                                                 localStorage.getItem('Water-SSD-LBS')+
+                                                                 localStorage.getItem('FA-SSD-LBS')+
+                                                                 localStorage.getItem('CA-SSD-LBS');
+                                                localStorage.setItem('Total-SSD-LBS', total_SSD_LBS);
+
+                                                <!--- Stock Mix Amount (LBS) ----->
+                                                var CA_stock_mix_lbs = localStorage('CA-SSD-LBS') *
+                                                                       (1 + localStorage('CA-MC')/100)
+                                                localStorage.setItem('CA-Stock-Mix-LBS', CA_stock_mix_lbs);
+
+                                                var FA_stock_mix_lbs = localStorage('FA-SSD-LBS') *
+                                                                       (1 + localStorage('FA-MC')/100)
+                                                localStorage.setItem('FA-Stock-Mix-LBS', FA_stock_mix_lbs);
+
+                                                var water_stock_mix_lbs = localStorage('Water-SSD-LBS') +
+                                                                          (localStorage('FA-SSD-LBS') - localStorage('FA-Stock-Mix-LBS')) +
+                                                                          (localStorage('CA-SSD-LBS') - localStorage('CA-Stock-Mix-LBS'))
+                                                localStorage.setItem('Water-Stock-Mix-LBS', water_stock_mix_lbs);
+
+                                                var total_stock_mix_lbs = localStorage.getItem('Cement-SSD-LBS')+
+                                                                          localStorage.getItem('Fly-Ash-SSD-LBS')+
+                                                                          localStorage.getItem('Slag-SSD-LBS')+
+                                                                          localStorage.getItem('Water-Stock-Mix-LBS')+
+                                                                          localStorage.getItem('CA-Stock-Mix-LBS')+
+                                                                          localStorage.getItem('FA-Stock-Mix-LBS');
+                                                localStorage.setItem('Total-Stock-Mix-LBS', total_stock_mix_lbs);
+                                                <!--- Volume of Formwork ----->
+                                                var input_formwork = localStorage('Volume')
+                                                localStorage.setItem('Input-Formwork', input_formwork)
+
+                                                if(document.getElementById('SlumpTest-Yes').checked()){
+                                                    var add_slump = localStorage('Volume') + 0.2036186343
+                                                    localStorage.setItem('Input-Formwork', add_slump)
+                                                }
+                                                if(document.getElementById('AirTest-Yes').checked()){
+                                                    var add_air = localStorage('Volume') + 0.25
+                                                    localStorage.setItem('Input-Formwork', add_air)
+                                                }
+
+                                                <!--- Mix Volume ----->
+                                                var mix_volume = localStorage('Input-Formwork') + (0.15 * localStorage('Input-Formwork'));
+                                                localStorage.setItem('Mix_Volume', mix_volume);
+
+
+                                                location.href = "output.html";
+                                            }
+                                         </script>
+                                    </div>
+
+                                    <div class="col">
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-primary" id="meters">M</button>
+                                            <button type="button" class="btn btn-primary" id="'feet">FT</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                        </div>
+           </div>
+           <div class="col-4">
+               <div class="jumbotron"style="background-color:#D3D3E6;">
+                                    <div class-="row">
+                                        <div class="col"></div>
+                                        <div class="col text-center">
+                                            Volume Determination
+                                        </div>
+                                        <div class="col"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            Slump Test?
+                                        </div>
+                                        <div class="col">
+                                            <label><input type="checkbox" id="SlumpTest-Yes"> Yes</label>
+                                            <label><input type="checkbox" id="SlumpTest-No"> No</label>
+                                        </div>
+                                        <div class="col"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            Air Test?
+                                        </div>
+                                        <div class="col">
+                                                <label><input type="checkbox" id="AirTest-Yes"> Yes</label>
+                                                <label><input type="checkbox" id="AirTest-No"> No</label>
+                                        </div>
+                                        <div class="col"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            Volume of the Formwork
+                                        </div>
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" id="Volume">
+                                                <script>
+                                                    document.getElementById('Volume').onkeyup = function(){
+                                                        var volume = this.valueAsNumber;
+                                                        localStorage.setItem('Volume',volume);
+                                                        }
+                                                </script>
+                                            </div>
+                                        </div>
+                                        <div class="col"></div>
+                                    </div>
+               </div>
+               <div class="jumbotron"style="background-color:#D3D3E6;">
+                        <div class="row">
+                            <div class="col">
+                                Moisture Content For Course Aggregate
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="MC-CA">
+                                     <script>
+                                         document.getElementById('MC-CA').onkeyup = function(){
+                                             var MCCA = this.valueAsNumber;
+                                             localStorage.setItem('MC-CA',MCCA);
+                                         }
+                                     </script>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    Moisture Content For Fine Aggregate
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="MC-FA">
+                                         <script>
+                                         document.getElementById('MC-FA').onkeyup = function() {
+                                             var MCFA = this.valueAsNumber;
+                                             localStorage.setItem('MC-FA', MCFA);
+                                         }
+                                        </script>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                     </div>
+                </div>
+    {% endblock %}

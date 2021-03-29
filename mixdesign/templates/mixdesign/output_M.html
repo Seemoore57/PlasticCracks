@@ -1,0 +1,256 @@
+
+{% extends "pc_home_generic.html" %}
+    {% block content %}
+
+        <div class="container-fluid">
+            <div class="row" style="color: white; text-align: justify">
+                <h1 class="text-center"> Mix Design Results (Meters)</h1>
+            </div>
+            <div class="row" style="background-color:#3D4257;">
+                <div class="col-1">
+                </div>
+                <div class="col-10">
+                    <div class="card" style="background-color:#D3D3E6;">
+                        <div class="card-body">
+                            <div class="row" style="height:40px">
+                                <div class="col-xs-3" style="width:20%">
+
+                                </div>
+                                <div class="col text-center" style="width:4%">
+                                    Amount Entered (kgs)
+                                </div>
+                                <div class="col text-center" style="width:4%">
+                                    SG
+                                </div>
+                                <div class="col text-center" style="width:4%">
+                                    m3
+                                </div>
+                                <div class="col text-center" style="width:4%">
+                                    1m3
+                                </div>
+                                <div class="col text-center" style="width:4%">
+                                    SSD mix amount(m3)
+                                </div>
+                                <div class="col text-center" style="width:4%">
+                                    SSD mix amount(kgs)
+                                </div>
+                                <div class="col text-center" style="width:4%">
+                                    Stock Mix Amount (kgs)
+                                </div>
+                            </div>
+                            <hr/>
+                            <div class="row" style="height:40px">
+                                <div class="col-xs-3" style="width:20% ">
+                                        Cement
+                                </div>
+                                <div class="col text-center" style="width:4%">
+                                    {{ cement|floatformat:2 }}
+                                </div>
+                                <div class="col text-center" style="width:4%">
+                                    3.15
+                                </div>
+                                <div class="col text-center" style="width:4%">
+                                    {{ cement_m3|floatformat:2 }}
+                                </div>
+                                <div class="col text-center" style="width:4%">
+                                    {{ cement_1m3|floatformat:2 }}
+                                </div>
+                                <div class="col text-center" style="width:4%">
+                                    {{ cement_ssd_m3|floatformat:2 }}
+                                </div>
+                                <div class="col text-center" style="width:4%">
+                                    {{ cement_ssd_kgs|floatformat:2 }}
+                                </div>
+                                <div class="col text-center" style="width:4%">
+                                    {{ cement_ssd_kgs|floatformat:2 }}
+                                </div>
+                            </div>
+                            <div class="row" style="height:40px">
+                                <div class="col-xs-3" style="width:20% ">
+                                        Fly Ash
+                                </div>
+                                <div class="col text-center" style="width:4%">
+                                    {{ fly_ash|floatformat:2 }}
+                                </div>
+                                <div class="col text-center" style="width:4%">
+                                    {{ fly_ash_SG|floatformat:2 }}
+                                </div>
+                                <div class="col text-center" style="width:4%">
+                                     {{ fly_ash_m3|floatformat:2 }}
+                                </div>
+                                <div class="col text-center" style="width:4%">
+                                    {{ fly_ash_1m3|floatformat:2 }}
+                                </div>
+                                <div class="col text-center" style="width:4%">
+                                    {{ fly_ash_ssd_m3|floatformat:2 }}
+                                </div>
+                                <div class="col text-center" style="width:4%">
+                                    {{ fly_ash_ssd_kgs|floatformat:2 }}}
+                                </div>
+                                <div class="col text-center" style="width:4%">
+                                    {{ fly_ash_ssd_kgs|floatformat:2 }}
+                                </div>
+                            </div>
+                            <div class="row" style="height:40px">
+                                <div class="col-xs-3" style="width:20% ">
+                                        Slag
+                                </div>
+                                <div class="col text-center" style="width:4%">
+                                    {{ slag|floatformat:2 }}
+                                </div>
+                                <div class="col text-center" style="width:4%">
+                                    {{ slag_SG|floatformat:2 }}
+                                </div>
+                                <div class="col text-center" style="width:4%">
+                                    {{ slag_m3|floatformat:2 }}
+                                </div>
+                                <div class="col text-center" style="width:4%">
+                                    {{ slag_1m3|floatformat:2 }}
+                                </div>
+                                <div class="col text-center" style="width:4%">
+                                    {{  slag_ssd_m3|floatformat:2}}
+                                </div>
+                                <div class="col text-center" style="width:4%">
+                                    {{  slag_ssd_kgs|floatformat:2}}
+                                </div>
+                                <div class="col text-center" style="width:4%">
+                                    {{  slag_ssd_kgs|floatformat:2}}
+                                </div>
+                            </div>
+                            <div class="row" style="height:40px">
+                                <div class="col-xs-3" style="width:20% ">
+                                        Water
+                                </div>
+                                <div class="col text-center" style="width:4%">
+                                    {{ water|floatformat:2 }}
+                                </div>
+                                <div class="col text-center" style="width:4%">
+                                    1.00
+                                </div>
+                                <div class="col text-center" style="width:4%">
+                                    {{ water_m3|floatformat:2 }}
+                                </div>
+                                <div class="col text-center" style="width:4%">
+                                    {{ water_1m3|floatformat:2 }}
+                                </div>
+                                <div class="col text-center" style="width:4%">
+                                      {{ water_ssd_ft3|floatformat:2 }}
+                                </div>
+                                <div class="col text-center" style="width:4%">
+                                  {{ water_ssd_lbs|floatformat:2 }}
+                                </div>
+                                <div class="col text-center" style="width:4%">
+                                    {{ water_stock_mix }}
+                                </div>
+                            </div>
+                            <div class="row" style="height:40px">
+                                <div class="col-xs-3" style="width:20% ">
+                                        Fine Aggregates
+                                </div>
+                                <div class="col text-center" style="width:4%">
+                                    {{ fine_aggregates|floatformat:2 }}
+                                </div>
+                                <div class="col text-center" style="width:4%">
+                                    {{ fine_aggregates_SG|floatformat:2 }}
+                                </div>
+                                <div class="col text-center" style="width:4%">
+                                    {{ fine_aggregates_m3|floatformat:2 }}
+                                </div>
+                                <div class="col text-center" style="width:4%">
+                                    {{ fine_aggregates_1m3|floatformat:2 }}
+                                </div>
+                                <div class="col text-center" style="width:4%">
+                                    {{ fine_aggregates_ssd_m3|floatformat:2 }}
+                                </div>
+                                <div class="col text-center" style="width:4%">
+                                    {{ fine_aggregates_ssd_kgs|floatformat:2 }}
+                                </div>
+                                <div class="col text-center" style="width:4%">
+                                    {{ fine_aggregates_stock_mix|floatformat:2 }}
+                                </div>
+                            </div>
+                            <div class="row" style="height:40px">
+                                <div class="col-xs-3" style="width:20% ">
+                                        Course Aggregates
+                                </div>
+                                <div class="col text-center" style="width:4%">
+                                    {{ coarse_aggregates|floatformat:2 }}
+                                </div>
+                                <div class="col text-center" style="width:4%">
+                                    {{ coarse_aggregates_SG|floatformat:2 }}
+                                </div>
+                                <div class="col text-center" style="width:4%">
+                                    {{ coarse_aggregates_m3|floatformat:2 }}
+                                </div>
+                                <div class="col text-center" style="width:4%">
+                                    {{ coarse_aggregates_1m3|floatformat:2 }}
+                                </div>
+                                <div class="col text-center" style="width:4%">
+                                    {{ coarse_aggregates_sdd_m3|floatformat:2 }}
+                                </div>
+                                <div class="col text-center" style="width:4%">
+                                    {{ coarse_aggregates_sdd_kgs|floatformat:2 }}
+                                </div>
+                                <div class="col text-center" style="width:4%">
+                                    {{ coarse_aggregates_stock_mix|floatformat:2 }}
+                                </div>
+                        </div>
+                        <div class="row" style="height:40px">
+                            <div class="col-xs-3" style="width:20% ">
+                                        Air
+                            </div>
+                            <div class="col text-center" style="width:4%">
+
+                            </div>
+                            <div class="col text-center" style="width:4%">
+                                {{ air_ft3|floatformat:2 }}
+                            </div>
+                            <div class="col text-center" style="width:4%">
+                                {{ air_m3|floatformat:2 }}
+                            </div>
+                            <div class="col text-center" style="width:4%">
+                                {{ air_1m3|floatformat:2 }}
+                            </div>
+                            <div class="col text-center" style="width:4%">
+                                {{ air_ssd_m3|floatformat:2 }}
+                            </div>
+                            <div class="col text-center" style="width:4%">
+
+                            </div>
+                            <div class="col text-center" style="width:4%">
+
+                            </div>
+                        </div>
+                            <hr/>
+                        <div class="row" style="height:40px">
+                            <div class="col-xs-3" style="width:20% ">
+                                        Totals =
+                            </div>
+                            <div class="col text-center" style="width:4%">
+
+                            </div>
+                            <div class="col text-center" style="width:4%">
+
+                            </div>
+                            <div class="col text-center" style="width:4%">
+                                {{ total_m3|floatformat:2 }}
+                            </div>
+                            <div class="col text-center" style="width:4%">
+                                {{ total_1m3|floatformat:2 }}
+                            </div>
+                            <div class="col text-center" style="width:4%">
+                                {{ total_ssd_m3|floatformat:2 }}
+                            </div>
+                            <div class="col text-center" style="width:4%">
+                                {{ total_ssd_kgs|floatformat:2 }}
+                            </div>
+                            <div class="col text-center" style="width:4%">
+                                {{ total_stock_mix_|floatformat:2 }}
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock %}
