@@ -9,8 +9,11 @@ def index(request):
 
 def calculate(request):
     if request.method == 'POST':
+        meters = request.POST.get('meters', '')
+        feet = request.POST.get('feet', '')
         print('in calculate')
         form = MixDesignCalculator(request.POST)
+        print(request.POST.get('value'))
         if form.is_valid():
             print('form is valid')
             args = {}
@@ -29,7 +32,6 @@ def calculate(request):
             slump_test = form.cleaned_data['Slump_Test']
             air_test = form.cleaned_data['Air_Test']
             formwork_volume = form.cleaned_data['Formwork_Volume']
-            unit = form.cleaned_data['Unit']
             moisture_content_FA = form.cleaned_data['Moisture_Content_FA']
             moisture_content_CA = form.cleaned_data['Moisture_Content_CA']
 
@@ -47,9 +49,7 @@ def calculate(request):
             args['formwork_volume']= formwork_volume
             args['moisture_content_FA']= moisture_content_FA
             args['moisture_content_CA']= moisture_content_CA
-            args['unit']= unit
-            print(unit)
-            if(unit == 'ft'):
+            if(feet):
                 if (slump_test):
                     args['formwork_volume']= args['formwork_volume'] + 0.2036186343
                 if (air_test):
@@ -112,7 +112,7 @@ def calculate(request):
                 args['water_stock_mix']= args['water_ssd_lbs'] + (args['fine_aggregates_ssd_lbs']-args['fine_aggregates_stock_mix'])+(args['coarse_aggregates_sdd_lbs']-args['coarse_aggregates_stock_mix'])
                 args['total_stock_mix']= args['cement_ssd_lbs']+ args['fly_ash_ssd_lbs']+ args['slag_ssd_lbs']+ args['water_stock_mix']+ args['coarse_aggregates_stock_mix']+ args['fine_aggregates_stock_mix']
                 return render(request, 'mixdesign/output_FT.html', args)
-            if(unit == 'meters'):
+            if(meters):
                 print('in meters')
                 if (slump_test):
                     args['formwork_volume']= args['formwork_volume'] + 0.06206295973464

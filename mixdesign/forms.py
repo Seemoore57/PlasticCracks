@@ -21,6 +21,5 @@ class MixDesignCalculator(forms.Form):
     Slump_Test = forms.BooleanField(required=False)
     Air_Test = forms.BooleanField(required=False)
     Formwork_Volume = forms.FloatField(min_value=0, max_value=100)
-    Unit = forms.ChoiceField(choices=unit_choices)
     Moisture_Content_FA = forms.FloatField(min_value=0, max_value=100)
     Moisture_Content_CA = forms.FloatField(min_value=0, max_value=100)
