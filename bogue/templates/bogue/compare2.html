@@ -1,215 +1,115 @@
-<!--<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Bogue Calculator</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="stylesheet" href="../../static/css/bogue.css">
-  </head>
-  <body>
-    <header>Nav Bar Placeholder</header>-->
-    {% extends "pc_home_generic.html" %}
-    {% block content %}
-    <div class="arow">
-        <h1>Bogue Calculator</h1>
-    </div>
-    <form action="/bogue/compare2.html" method="post">
-        {% csrf_token %}
-    <div class="arow">
-        <div class="colu-12 calc in">
-            <ul>
-                <div class="lrow">
-                    <div class="colu-5">
-                            <p class="ltitle">Oxide</p>
-                    </div>
-                    <div class="colu-5">
-                            <p class="ltitle">Notation</p>
-                    </div>
-                    <div class="colu-5">
-                            <p class="ltitle">Common Name</p>
-                    </div>
-                    <div class="colu-5">
-                            <p class="ltitle">Weight (%)</p>
-                    </div>
-                </div>
-                <div class="lrow">
-                    <div class="colu-5">
-                            <li>CaO</li>
-                    </div>
-                    <div class="colu-5">
-                            <li>C</li>
-                    </div>
-                    <div class="colu-5">
-                            <li>Lime</li>
-                    </div>
-                    <div class="colu-5">
-                            <li>{{ form.lime }}</li>
-                    </div>
-                </div>
-                <div class="lrow">
-                    <div class="colu-5">
-                            <li>SiO<sub>2</sub></li>
-                    </div>
-                    <div class="colu-5">
-                            <li>S</li>
-                    </div>
-                    <div class="colu-5">
-                            <li>Silica</li>
-                    </div>
-                    <div class="colu-5">
-                            <li>{{ form.silica }}</li>
-                    </div>
-                </div>
-                <div class="lrow">
-                    <div class="colu-5">
-                            <li>Al<sub>3</sub>O<sub>2</sub></li>
-                    </div>
-                    <div class="colu-5">
-                            <li>A</li>
-                    </div>
-                    <div class="colu-5">
-                            <li>Alumina</li>
-                    </div>
-                    <div class="colu-5">
-                            <li>{{ form.alumina }}</li>
-                    </div>
-                </div>
-                <div class="lrow">
-                    <div class="colu-5">
-                            <li>Fe<sub>2</sub>O<sub>3</sub></li>
-                    </div>
-                    <div class="colu-5">
-                            <li>F</li>
-                    </div>
-                    <div class="colu-5">
-                            <li>Ferric Oxide</li>
-                    </div>
-                    <div class="colu-5">
-                            <li>{{ form.rust }}</li>
-                    </div>
-                </div>
-            </ul>
-            <div class="arow">
-                <button type="submit" class="btn btn-primary">Compute</button>
-            </div>
+{% extends "bogue/bogueAbstract.html" %}
+{% block buttons %}
+    <button type="submit" class="btn btn-primary">Compute</button>
+    <button type="submit" class="btn btn-primary" formaction="/bogue/compare.html" method="post">Compare</button>
+    <button type="submit" class="btn btn-primary" formaction="/bogue/" method="post">Clear</button>
+{% endblock %}
+{% block result %}
+    <div class="crow">
+        <div class="colu-12 title">
+            <h3>Old Results</h3>
         </div>
         <div class="colu-1"></div>
-        <div class="colu-12 calc result">
-            <div class="crow">
-                <div class="colu-12 title">
-                    <h3>Old Results</h3>
-                </div>
-                <div class="colu-1"></div>
-                <div class="colu-12 title">
-                    <h3>New Results</h3>
-                </div>
-            </div>
-            <div class="crow">
-                <div class="colu-12 chart">
-                    <div class="colu-6 chart"></div>
-                    <div class="colu-13 bar-container chart">
-                        <div class="bar leftover" style="height: {{ request.session.leftover }}%"></div>
-                        <div class="bar trisilicate" style="height: {{ request.session.trisilicate }}%"><div class="ltooltip">C<sub>3</sub>S: {{ request.session.trisilicate|floatformat:2 }}%</div></div>
-                        <div class="bar disilicate" style="height: {{ request.session.disilicate }}%"><div class="ltooltip">C<sub>2</sub>S: {{ request.session.disilicate|floatformat:2 }}%</div></div>
-                        <div class="bar trialumina" style="height: {{ request.session.trialumina }}%"><div class="ltooltip">C<sub>3</sub>A: {{ request.session.trialumina|floatformat:2 }}%</div></div>
-                        <div class="bar ferricalumina" style="height: {{ request.session.ferricalumina }}%"><div class="ltooltip">C<sub>4</sub>AF: {{ request.session.ferricalumina|floatformat:2 }}%</div></div>
-                    </div>
-                    <div class="colu-6 chart"></div>
-                </div>
-                <div class="colu-1 chart"></div>
-                <div class="colu-12 chart">
-                    <div class="colu-6 chart"></div>
-                    <div class="colu-13 bar-container chart">
-                        <div class="bar leftover" style="height: {{ leftover }}%"></div>
-                        <div class="bar trisilicate" style="height: {{ trisilicate }}%"><div class="rtooltip">C<sub>3</sub>S: {{ trisilicate|floatformat:2 }}%</div></div>
-                        <div class="bar disilicate" style="height: {{ disilicate }}%"><div class="rtooltip">C<sub>2</sub>S: {{ disilicate|floatformat:2 }}%</div></div>
-                        <div class="bar trialumina" style="height: {{ trialumina }}%"><div class="rtooltip">C<sub>3</sub>A: {{ trialumina|floatformat:2 }}%</div></div>
-                        <div class="bar ferricalumina" style="height: {{ ferricalumina }}%"><div class="rtooltip">C<sub>4</sub>AF: {{ ferricalumina|floatformat:2 }}%</div></div>
-                    </div>
-                    <div class="colu-6 chart"></div>
-                </div>
-            </div>
-            <div class="crow">
-                <button type="submit" class="btn btn-primary" formaction="/bogue/compare.html" method="post">Compare</button>
-            </div>
-            <div class="crow">
-                <p>Compare will open a new bogue calculation with the old results replacing the input bar graph.</p>
-            </div>
+        <div class="colu-12 title">
+            <h3>New Results</h3>
         </div>
     </div>
-    </form>
-    <div class="arow">
-        <div class="colu-12 calc breakdown">
-            <ul>
-                <div class="lrow">
-                    <div class="colu-7">
-                            <p class="ltitle">Oxide</p>
-                    </div>
-                    <div class="colu-7">
-                            <p class="ltitle">Compound Name</p>
-                    </div>
-                    <div class="colu-7">
-                            <p class="ltitle">Weight (%)</p>
-                    </div>
-                </div>
-                <div class="lrow">
-                    <div class="colu-7">
-                        <li>C<sub>3</sub>S</li>
-                    </div>
-                    <div class="colu-7">
-                        <li>tricalcium silicate</li>
-                    </div>
-                    <div class="colu-7">
-                        <li>{{ trisilicate|floatformat:2 }}%</li>
-                    </div>
-                </div>
-                <div class="lrow">
-                    <div class="colu-7">
-                        <li>C<sub>2</sub>S</li>
-                    </div>
-                    <div class="colu-7">
-                        <li>dicalcium silicate</li>
-                    </div>
-                    <div class="colu-7">
-                        <li>{{ disilicate|floatformat:2 }}%</li>
-                    </div>
-                </div>
-                <div class="lrow">
-                    <div class="colu-7">
-                        <li>C<sub>3</sub>A</li>
-                    </div>
-                    <div class="colu-7">
-                        <li>tricalcium aluminate</li>
-                    </div>
-                    <div class="colu-7">
-                        <li>{{ trialumina|floatformat:2 }}%</li>
-                    </div>
-                </div>
-                <div class="lrow">
-                    <div class="colu-7">
-                        <li>C<sub>4</sub>AF</li>
-                    </div>
-                    <div class="colu-7">
-                        <li>calcium aluminoferrite</li>
-                    </div>
-                    <div class="colu-7">
-                        <li>{{ ferricalumina|floatformat:2 }}%</li>
-                    </div>
-                </div>
-            </ul>
-        </div>
-        <div class="colu-1"></div>
-        <div class="colu-12 calc quiz">
-            <p>Click one of the options below to see an example of that cement type.</p>
-            <div class="arow">
-                <div class="colu-5 but"><input type="button" class="btn btn-secondary" id="i" name="i" value="I"></div>
-                <div class="colu-5 but"><input type="button" class="btn btn-secondary" id="ii" name="ii" value="II"></div>
-                <div class="colu-5 but"><input type="button" class="btn btn-secondary" id="iii" name="iii" value="III"></div>
-                <div class="colu-5 but"><input type="button" class="btn btn-secondary" id="iv" name="iv" value="IV"></div>
-                <div class="colu-5 but"><input type="button" class="btn btn-secondary" id="v" name="v" value="V"></div>
+    <div class="crow">
+        <div class="colu-12 chart">
+            <div class="colu-6 chart"></div>
+            <div class="colu-13 bar-container chart">
+                <div class="bar leftover" style="height: {{ request.session.leftover2 }}%"></div>
+                        <div class="bar trisilicate" style="height: {{ request.session.trisilicate2 }}%"><div class="ltooltip">C<sub>3</sub>S: {{ request.session.trisilicate2|floatformat:2 }}%</div></div>
+                        <div class="bar disilicate" style="height: {{ request.session.disilicate2 }}%"><div class="ltooltip">C<sub>2</sub>S: {{ request.session.disilicate2|floatformat:2 }}%</div></div>
+                        <div class="bar trialumina" style="height: {{ request.session.trialumina2 }}%"><div class="ltooltip">C<sub>3</sub>A: {{ request.session.trialumina2|floatformat:2 }}%</div></div>
+                        <div class="bar ferricalumina" style="height: {{ request.session.ferricalumina2 }}%"><div class="ltooltip">C<sub>4</sub>AF: {{ request.session.ferricalumina2|floatformat:2 }}%</div></div>
             </div>
+            <div class="colu-6 chart"></div>
         </div>
+        <div class="colu-1 chart"></div>
+        <div class="colu-12 chart">
+            <div class="colu-6 chart"></div>
+            <div class="colu-13 bar-container chart">
+                <div class="bar leftover" style="height: {{ leftover }}%"></div>
+                <div class="bar trisilicate" style="height: {{ trisilicate }}%"><div class="ltooltip">C<sub>3</sub>S: {{ trisilicate|floatformat:2 }}%</div></div>
+                <div class="bar disilicate" style="height: {{ disilicate }}%"><div class="ltooltip">C<sub>2</sub>S: {{ disilicate|floatformat:2 }}%</div></div>
+                <div class="bar trialumina" style="height: {{ trialumina }}%"><div class="ltooltip">C<sub>3</sub>A: {{ trialumina|floatformat:2 }}%</div></div>
+                <div class="bar ferricalumina" style="height: {{ ferricalumina }}%"><div class="ltooltip">C<sub>4</sub>AF: {{ ferricalumina|floatformat:2 }}%</div></div>
+            </div>
+            <div class="colu-6 chart"></div>
+        </div>
+    </div>
+    <div class="arow">
+        <p>Compare will open a new bogue calculation with the old results replacing the input bar graph.</p>
     </div>
 {% endblock %}
-  <!--</body>
-</html>-->
+{% block breakdown %}
+    <ul>
+        <div class="lrow">
+            <div class="colu-7">
+                    <p class="ltitle">Oxide</p>
+            </div>
+            <div class="colu-7">
+                    <p class="ltitle">Compound Name</p>
+            </div>
+            <div class="colu-7">
+                    <p class="ltitle">Weight (%)</p>
+            </div>
+        </div>
+        <div class="lrow">
+            <div class="colu-7">
+                <li>C<sub>3</sub>S</li>
+            </div>
+            <div class="colu-7">
+                <li>tricalcium silicate</li>
+            </div>
+            <div class="colu-7">
+                <li>{{ trisilicate|floatformat:2 }}%</li>
+            </div>
+        </div>
+        <div class="lrow">
+            <div class="colu-7">
+                <li>C<sub>2</sub>S</li>
+            </div>
+            <div class="colu-7">
+                <li>dicalcium silicate</li>
+            </div>
+            <div class="colu-7">
+                <li>{{ disilicate|floatformat:2 }}%</li>
+            </div>
+        </div>
+        <div class="lrow">
+            <div class="colu-7">
+                <li>C<sub>3</sub>A</li>
+            </div>
+            <div class="colu-7">
+                <li>tricalcium aluminate</li>
+            </div>
+            <div class="colu-7">
+                <li>{{ trialumina|floatformat:2 }}%</li>
+            </div>
+        </div>
+        <div class="lrow">
+            <div class="colu-7">
+                <li>C<sub>4</sub>AF</li>
+            </div>
+            <div class="colu-7">
+                <li>calcium aluminoferrite</li>
+            </div>
+            <div class="colu-7">
+                <li>{{ ferricalumina|floatformat:2 }}%</li>
+            </div>
+        </div>
+    </ul>
+{% endblock %}
+{% block types %}
+    <p>Compare your results to the corresponding cement types using the buttons below.</p>
+    <form>
+        {% csrf_token %}
+        <div class="colu-5 but"><input type="submit" formaction="/bogue/compare.html" formmethod="post" class="btn btn-secondary" id="i" name="i" value="I"></div>
+        <div class="colu-5 but"><input type="submit" formaction="/bogue/compare.html" formmethod="post" class="btn btn-secondary" id="ii" name="ii" value="II"></div>
+        <div class="colu-5 but"><input type="submit" formaction="/bogue/compare.html" formmethod="post" class="btn btn-secondary" id="iii" name="iii" value="III"></div>
+        <div class="colu-5 but"><input type="submit" formaction="/bogue/compare.html" formmethod="post" class="btn btn-secondary" id="iv" name="iv" value="IV"></div>
+        <div class="colu-5 but"><input type="submit" formaction="/bogue/compare.html" formmethod="post" class="btn btn-secondary" id="v" name="v" value="V"></div>
+    </form>
+{% endblock %}

@@ -18,6 +18,7 @@ from django.urls import include, path
 from django.views.generic import RedirectView
 
 urlpatterns = [
+    path('registration/', include('registration.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('bogue/', include('bogue.urls')),
     path('tcpowers/', include('tcpowers.urls')),
