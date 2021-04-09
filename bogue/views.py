@@ -1,5 +1,6 @@
 from django.http import HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib import messages
 
 from .forms import BogueCalculator
 # Create your views here.
@@ -81,7 +82,8 @@ def calculate(request):
         if (af < 0):
             af = 0
         if (leftover < 0):
-            leftover = 0
+            messages.error(request, 'Error: Calculation results over 100%')
+            return redirect('/bogue/')
 
         args['trisilicate'] = tri
         args['disilicate'] = di
