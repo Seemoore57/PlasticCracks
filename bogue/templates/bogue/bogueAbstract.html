@@ -78,10 +78,29 @@
                             <li>{{ form.rust }}</li>
                     </div>
                 </div>
+                <div class="lrow">
+                    <div class="colu-5">
+                            <li>SO<sub>3</sub></li>
+                    </div>
+                    <div class="colu-5">
+                            <li><span style="text-decoration: overline">S</span></li>
+                    </div>
+                    <div class="colu-5">
+                            <li>Sulfur Trioxide</li>
+                    </div>
+                    <div class="colu-5">
+                            <li>{{ form.sulfate }}</li>
+                    </div>
+                </div>
             </ul>
             <div class="arow">
                 {% block buttons %}
                 {% endblock %}
+                {% for message in messages %}
+                    <div class="alert alert-warning">
+                        {{ message }}
+                    </div>
+                {% endfor %}
             </div>
             </form>
         </div>

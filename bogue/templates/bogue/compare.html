@@ -2,7 +2,7 @@
 {% block buttons %}
     <button type="submit" class="btn btn-primary">Compute</button>
     <button type="submit" class="btn btn-primary" formaction="/bogue/compare2.html" method="post">Compare</button>
-    <button type="submit" class="btn btn-primary" formaction="/bogue/" method="post">Clear</button>
+    <a class="btn btn-primary" href="/bogue/">Clear</a>on>
 {% endblock %}
 {% block result %}
     <div class="crow">
@@ -106,10 +106,10 @@
     <p>Compare your results to the corresponding cement types using the buttons below.</p>
     <form>
         {% csrf_token %}
-        <div class="colu-5 but"><input type="submit" formaction="/bogue/compare2.html" formmethod="post" class="btn btn-secondary" id="i" name="i" value="I"></div>
-        <div class="colu-5 but"><input type="submit" formaction="/bogue/compare2.html" formmethod="post" class="btn btn-secondary" id="ii" name="ii" value="II"></div>
-        <div class="colu-5 but"><input type="submit" formaction="/bogue/compare2.html" formmethod="post" class="btn btn-secondary" id="iii" name="iii" value="III"></div>
-        <div class="colu-5 but"><input type="submit" formaction="/bogue/compare2.html" formmethod="post" class="btn btn-secondary" id="iv" name="iv" value="IV"></div>
-        <div class="colu-5 but"><input type="submit" formaction="/bogue/compare2.html" formmethod="post" class="btn btn-secondary" id="v" name="v" value="V"></div>
+        <div class="colu-5 but"><input type="submit" formaction="/bogue/compare2.html" formmethod="post" class="btn btn-secondary" id="i3" name="i3" value="I"></div>
+        <div class="colu-5 but"><input type="submit" formaction="/bogue/compare2.html" formmethod="post" class="btn btn-secondary" id="ii3" name="ii3" value="II"></div>
+        <div class="colu-5 but"><input type="submit" formaction="/bogue/compare2.html" formmethod="post" class="btn btn-secondary" id="iii3" name="iii3" value="III"></div>
+        <div class="colu-5 but"><input type="submit" formaction="/bogue/compare2.html" formmethod="post" class="btn btn-secondary" id="iv3" name="iv3" value="IV"></div>
+        <div class="colu-5 but"><input type="submit" formaction="/bogue/compare2.html" formmethod="post" class="btn btn-secondary" id="v3" name="v3" value="V"></div>
     </form>
 {% endblock %}

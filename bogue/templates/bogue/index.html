@@ -1,12 +1,7 @@
 {% extends "bogue/bogueAbstract.html" %}
 
 {% block buttons %}
-    <button type="submit" class="btn btn-primary">Compute</button>
-    {% for message in messages %}
-        <div class="alert">
-            {{ message }}
-        </div>
-    {% endfor %}
+    <button id="compute" name="compute" type="submit" class="btn btn-primary">Compute</button>
 {% endblock %}
 
 {% block result %}
