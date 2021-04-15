@@ -1,8 +1,8 @@
 {% extends "bogue/bogueAbstract.html" %}
 {% block buttons %}
-    <button type="submit" class="btn btn-primary">Compute</button>
-    <button type="submit" class="btn btn-primary" formaction="/bogue/compare2.html" method="post">Compare</button>
-    <a class="btn btn-primary" href="/bogue/">Clear</a>on>
+    <button id="compute" name="compute" type="submit" class="btn btn-primary">Compute</button>
+    <button id="compare" name="compare" type="submit" class="btn btn-primary" formaction="/bogue/compare2.html" method="post">Compare</button>
+    <a class="btn btn-primary" href="/bogue/">Clear</a>
 {% endblock %}
 {% block result %}
     <div class="crow">
