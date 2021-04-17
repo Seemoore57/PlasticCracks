@@ -21,9 +21,9 @@ def calculate(request):
                 vhp = .68 * doh
                 vg = .18 * doh
                 vc =  ((wcr * .01) - (.36 * doh * .01)) * 100
-                vu = (1 - (doh * .01)) * vc
+                vu = 100 * ((1 - (doh * .01)) * .32)
                 pg = 100 * wg / vhp
-                pc = (vc * 100) / (wcr + vc)
+                pc = (vc * 100) / (wcr + 32)
                 x = (.68 * doh) / ((.32 * doh) + wcr) * 100
 
                 args['wa'] = wa
