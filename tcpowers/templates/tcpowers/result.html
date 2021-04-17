@@ -39,6 +39,32 @@
             </div>
             </form>
         </div>
+    <div class="colu-1"></div>
+    <div class="colu-12 calc result">
+        <div class="crow">
+            <div class="colu-4 title">
+                <h3>Results</h3>
+            </div>
+        </div>
+        <div class="crow">
+            <div class="colu-6 chart">
+            </div>
+            <div class="colu-18 chart">
+                <div class="colu-3 chart"></div>
+                <div class="colu-15 bar-container chart">
+                    <div class="bar trisilicate" style="height: {{ vc }}%"><div class="ltooltip">Capillary Pores: {{ vc }}%</div></div>
+                    <div class="bar disilicate" style="height: {{ vg }}%"><div class="ltooltip">Gel Pores: {{ vg }}%</div></div>
+                    <div class="bar trialumina" style="height: {{ vhp }}%"><div class="ltooltip">Hydration Products: {{ vhp }}%</div></div>
+                </div>
+                <div class="colu-6 chart"></div>
+            </div>
+        </div>
+        <div class="crow">
+            <div class="colu-4 title">
+                <button type="submit" class="btn btn-primary" method="post">Compare</button>
+            </div>
+        </div>
+    </div>
 </div>
 <div class="arow">
     <div class="colu-12 calc breakdown">
@@ -101,7 +127,7 @@
                     <li>P<sub>r</sub></li>
                 </div>
                 <div class="colu-7">
-                    <li>{{ pr|floatformat:2 }}%</li>
+                    <li>{{ pg|floatformat:2 }}%</li>
                 </div>
             </div>
             <div class="lrow">
@@ -121,30 +147,6 @@
                 </div>
             </div>
         </ul>
-    </div>
-</div>
-<div class="colu-12 calc result">
-    <div class="crow">
-        <div class="colu-1"></div>
-        <div class="colu-12 title">
-            <h3>Results</h3>
-        </div>
-    </div>
-    <div class="crow">
-        <div class="colu-12 chart">
-        </div>
-        <div class="colu-12 chart">
-            <div class="colu-6 chart"></div>
-            <div class="colu-13 bar-container chart">
-                <div class="bar trisilicate" style="height: {{ vc }}%"><div class="ltooltip">Capillary Pores: {{ vc }}%</div></div>
-                <div class="bar disilicate" style="height: {{ vg }}%"><div class="ltooltip">Gel Pores: {{ vg }}%</div></div>
-                <div class="bar trialumina" style="height: {{ vhp }}%"><div class="ltooltip">Hydration Products: {{ vhp }}%</div></div>
-            </div>
-            <div class="colu-6 chart"></div>
-        </div>
-    </div>
-    <div class="crow">
-        <button type="submit" class="btn btn-primary" method="post">Compare</button>
     </div>
 </div>
 {% endblock %}
