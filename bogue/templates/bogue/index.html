@@ -1,13 +1,16 @@
 {% extends "bogue/bogueAbstract.html" %}
+
 {% block buttons %}
-    <button type="submit" class="btn btn-primary">Compute</button>
+    <button id="compute" name="compute" type="submit" class="btn btn-primary">Compute</button>
 {% endblock %}
+
 {% block result %}
     <p>Enter in the percent of the weight each oxide in your cement mix takes up.</p>
     <p>The table below the input will give the results of the mixture in the percent weight of the compounds comprising it.</p>
     <p>This box will contain a bar graph showcasing the ratios of the inputs vs the outputs.</p>
     <p>Press the arrow on the bottom right of the input to compute.</p>
 {% endblock %}
+
 {% block breakdown %}
     <ul>
         <div class="lrow">
@@ -67,6 +70,7 @@
         </div>
     </ul>
 {% endblock %}
+
 {% block types %}
     <p>Clicking a button below runs the calculation for that type of cement.</p>
     <div class="arow">

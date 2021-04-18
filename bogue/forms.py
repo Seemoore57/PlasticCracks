@@ -5,4 +5,5 @@ class BogueCalculator(forms.Form):
     silica = forms.FloatField(min_value=0, max_value=100)
     alumina = forms.FloatField(min_value=0, max_value=100)
     rust = forms.FloatField(min_value=0, max_value=100)
+    sulfate = forms.FloatField(min_value=0, max_value=100)
 

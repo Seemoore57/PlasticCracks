@@ -15,13 +15,16 @@
                     <div class="colu-5">
                             <p class="ltitle">Input</p>
                     </div>
+                    <div class="colu-5">
+                            <p class="ltitle">%</p>
+                    </div>
                 </div>
                 <div class="lrow">
                     <div class="colu-5">
                             <li>Water/Cement Ratio</li>
                     </div>
                     <div class="colu-5">
-                            <li><input type="number" id="WCRatio" name="WCRatio"></li>
+                            <li><input type="number" step="0.01" id="WCRatio" name="WCRatio" max="100" min="0"></li>
                     </div>
                 </div>
 
@@ -30,13 +33,18 @@
                             <li>Degree of Hydration</li>
                     </div>
                     <div class="colu-5">
-                            <li><input type="number" id="DegOfHydra" name="DegOfHydra"></li>
+                            <li><input type="number" step="0.01" id="DegOfHydra" name="DegOfHydra" max="100" min="0"></li>
                     </div>
                 </div>
             </ul>
             <div class="brow">
                 <button type="submit" class="btn btn-primary">Compute</button>
             </div>
+                {% for message in messages %}
+                    <div class="alert">
+                        {{ message }}
+                    </div>
+                {% endfor %}
             </form>
         </div>
 </div>
@@ -46,6 +54,9 @@
             <div class="lrow">
                 <div class="colu-5">
                     <p class="ltitle">Output</p>
+                </div>
+                <div class="colu-7">
+                    <p class="ltitle">%</p>
                 </div>
             </div>
             <div class="lrow">
