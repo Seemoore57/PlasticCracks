@@ -1,0 +1,13 @@
+{% extends "pc_home_generic.html" %}
+
+{% block content %}
+    {% if res %}
+        <ul>
+        {% for data in res %}
+            <li>{{ data }}</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No weather data available</p>
+    {% endif %}
+{% endblock %}
