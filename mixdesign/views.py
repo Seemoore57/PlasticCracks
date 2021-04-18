@@ -54,7 +54,10 @@ def calculate(request):
                     args['formwork_volume']= args['formwork_volume'] + 0.2036186343
                 if (air_test):
                     args['formwork_volume'] = args['formwork_volume'] + 0.25
-
+                args['air_ft3'] = 0
+                args['air_1ft3'] = 0
+                args['air_1yd3'] = 0
+                args['air_ssd_ft3'] = 0
                 args['mix_volume'] = (args['formwork_volume'] * 0.15) + args['formwork_volume']
                 args['total'] = args['cement']+args['fly_ash']+args['slag']+args['water']+args['fine_aggregates']+args['coarse_aggregates']
 
@@ -65,9 +68,7 @@ def calculate(request):
                 args['fine_aggregates_ft3'] = args['fine_aggregates'] / args['fine_aggregates_SG'] * 64.2
                 args['coarse_aggregates_ft3'] = args['coarse_aggregates'] / args['coarse_aggregates_SG'] * 64.2
 
-                args['air_ft3']=args['cement_ft3']+args['fly_ash_ft3']+args['slag_ft3']+args['fine_aggregates_ft3']/(0.94)+args['cement_ft3']+args['fly_ash_ft3']+args['slag_ft3']+args['fine_aggregates_ft3']
-
-                args['total_ft3']=args['cement_ft3']+args['fly_ash_ft3']+args['slag_ft3']+args['water_ft3'] + args['coarse_aggregates_ft3']+ args['fine_aggregates_ft3']+args['air_ft3']
+                args['total_ft3']=args['cement_ft3']+args['fly_ash_ft3']+args['slag_ft3']+args['water_ft3'] + args['coarse_aggregates_ft3']+ args['fine_aggregates_ft3']
 
                 args['cement_1ft3']= args['cement_ft3']/args['total_ft3']
                 args['fly_ash_1ft3'] = args['fly_ash_ft3'] / args['total_ft3']
@@ -75,19 +76,17 @@ def calculate(request):
                 args['water_1ft3']= args['water_ft3'] / args['total_ft3']
                 args['fine_aggregates_1ft3']= args['fine_aggregates_ft3'] / args['total_ft3']
                 args['coarse_aggregates_1ft3']= args['coarse_aggregates_ft3'] / args['total_ft3']
-                args['air_1ft3']= args['air_ft3'] / args['total_ft3']
 
                 args['total_1ft3'] = args['cement_1ft3'] + args['fly_ash_1ft3'] + args['slag_1ft3'] + args['water_1ft3'] + \
-                                    args['coarse_aggregates_1ft3'] + args['fine_aggregates_1ft3'] + args['air_1ft3']
+                                    args['coarse_aggregates_1ft3'] + args['fine_aggregates_1ft3']
                 args['cement_1yd3']= args['cement_1ft3']*27
                 args['fly_ash_1yd3']= args['fly_ash_1ft3']*27
                 args['slag_1yd3']= args['slag_1ft3']*27
                 args['water_1yd3']= args['water_1ft3']*27
                 args['fine_aggregates_1yd3']= args['fine_aggregates_1ft3']*27
                 args['coarse_aggregates_1yd3']= args['coarse_aggregates_1ft3']*27
-                args['air_1yd3']= args['air_1ft3']*27
 
-                args['total_1yd3'] = args['cement_1yd3'] + args['fly_ash_1yd3'] + args['slag_1yd3'] + args['water_1yd3'] + args['coarse_aggregates_1yd3'] + args['fine_aggregates_1yd3'] + args['air_1yd3']
+                args['total_1yd3'] = args['cement_1yd3'] + args['fly_ash_1yd3'] + args['slag_1yd3'] + args['water_1yd3'] + args['coarse_aggregates_1yd3'] + args['fine_aggregates_1yd3']
 
                 args['cement_ssd_ft3']= args['cement_1ft3']* args['mix_volume']
                 args['fly_ash_ssd_ft3']= args['fly_ash_1ft3']* args['mix_volume']
@@ -95,9 +94,8 @@ def calculate(request):
                 args['water_ssd_ft3']= args['water_1ft3']* args['mix_volume']
                 args['fine_aggregates_ssd_ft3']= args['fine_aggregates_1ft3']* args['mix_volume']
                 args['coarse_aggregates_sdd_ft3']= args['coarse_aggregates_1ft3']* args['mix_volume']
-                args['air_ssd_ft3']= args['air_1ft3']* args['mix_volume']
                 args['total_ssd_ft3']= args['cement_ssd_ft3'] + args['fly_ash_ssd_ft3'] + args['slag_ssd_ft3'] + args[
-                    'water_ssd_ft3'] + args['coarse_aggregates_sdd_ft3'] + args['fine_aggregates_ssd_ft3'] + args['air_ssd_ft3']
+                        'water_ssd_ft3'] + args['coarse_aggregates_sdd_ft3'] + args['fine_aggregates_ssd_ft3']
 
                 args['cement_ssd_lbs']=args['cement_ssd_ft3']* 3.15 * 62.4
                 args['fly_ash_ssd_lbs']=args['fly_ash_ssd_ft3']* 2.5 * 62.4
@@ -111,6 +109,18 @@ def calculate(request):
                 args['fine_aggregates_stock_mix'] = args['fine_aggregates_ssd_lbs'] * ((1 + args['moisture_content_FA']) / 100)
                 args['water_stock_mix']= args['water_ssd_lbs'] + (args['fine_aggregates_ssd_lbs']-args['fine_aggregates_stock_mix'])+(args['coarse_aggregates_sdd_lbs']-args['coarse_aggregates_stock_mix'])
                 args['total_stock_mix']= args['cement_ssd_lbs']+ args['fly_ash_ssd_lbs']+ args['slag_ssd_lbs']+ args['water_stock_mix']+ args['coarse_aggregates_stock_mix']+ args['fine_aggregates_stock_mix']
+                if(air_entrained):
+                    args['air_ft3'] = args['cement_ft3'] + args['fly_ash_ft3'] + args['slag_ft3'] + args[
+                        'fine_aggregates_ft3'] / (0.94) + args['cement_ft3'] + args['fly_ash_ft3'] + args['slag_ft3'] + \
+                                      args['fine_aggregates_ft3']
+                    args['total_ft3'] = args['total_ft3'] + args['air_ft3']
+                    args['air_1ft3'] = args['air_ft3'] / args['total_ft3']
+                    args['total_1ft3'] = args['total_1ft3'] + args['air_1ft3']
+                    args['air_1yd3'] = args['air_1ft3'] * 27
+                    args['total_1yd3'] = args['total_1yd3'] + args['air_1yd3']
+                    args['air_ssd_ft3'] = args['air_1ft3'] * args['mix_volume']
+                    args['total_ssd_ft3'] = args['total_ssd_ft3'] + args['air_ssd_ft3']
+
                 return render(request, 'mixdesign/output_FT.html', args)
             if(meters):
                 print('in meters')
@@ -119,6 +129,9 @@ def calculate(request):
                 if (air_test):
                     args['formwork_volume'] = args['formwork_volume'] + 0.0762
 
+                args['air_m3'] = 0
+                args['air_1m3'] = 0
+                args['air_ssd_m3'] = 0
                 args['mix_volume'] = (args['formwork_volume'] * 0.15) + args['formwork_volume']
 
                 args['total'] = args['cement'] + args['fly_ash'] + args['slag'] + args['water'] + args[
@@ -131,12 +144,8 @@ def calculate(request):
                 args['fine_aggregates_m3'] = args['fine_aggregates'] / args['fine_aggregates_SG'] * 998
                 args['coarse_aggregates_m3'] = args['coarse_aggregates'] / args['coarse_aggregates_SG'] * 998
 
-                args['air_m3'] = args['cement_m3'] + args['fly_ash_m3'] + args['slag_m3'] + args[
-                    'fine_aggregates_m3'] / (0.94) + args['cement_m3'] + args['fly_ash_m3'] + args['slag_m3'] + \
-                                  args['fine_aggregates_m3']
-
                 args['total_m3'] = args['cement_m3'] + args['fly_ash_m3'] + args['slag_m3'] + args['water_m3'] + \
-                                    args['coarse_aggregates_m3'] + args['fine_aggregates_m3'] + args['air_m3']
+                                    args['coarse_aggregates_m3'] + args['fine_aggregates_m3']
 
                 args['cement_1m3'] = args['cement_m3'] / args['total_m3']
                 args['fly_ash_1m3'] = args['fly_ash_m3'] / args['total_m3']
@@ -144,11 +153,10 @@ def calculate(request):
                 args['water_1m3'] = args['water_m3'] / args['total_m3']
                 args['fine_aggregates_1m3'] = args['fine_aggregates_m3'] / args['total_m3']
                 args['coarse_aggregates_1m3'] = args['coarse_aggregates_m3'] / args['total_m3']
-                args['air_1m3'] = args['air_m3'] / args['total_m3']
 
                 args['total_1m3'] = args['cement_1m3'] + args['fly_ash_1m3'] + args['slag_1m3'] + args[
                     'water_1m3'] + \
-                                     args['coarse_aggregates_1m3'] + args['fine_aggregates_1m3'] + args['air_1m3']
+                                     args['coarse_aggregates_1m3'] + args['fine_aggregates_1m3']
 
                 args['cement_ssd_m3'] = args['cement_1m3'] * args['mix_volume']
                 args['fly_ash_ssd_m3'] = args['fly_ash_1m3'] * args['mix_volume']
@@ -156,10 +164,8 @@ def calculate(request):
                 args['water_ssd_m3'] = args['water_1m3'] * args['mix_volume']
                 args['fine_aggregates_ssd_m3'] = args['fine_aggregates_1m3'] * args['mix_volume']
                 args['coarse_aggregates_sdd_m3'] = args['coarse_aggregates_1m3'] * args['mix_volume']
-                args['air_ssd_m3'] = args['air_1m3'] * args['mix_volume']
                 args['total_ssd_m3'] = args['cement_ssd_m3'] + args['fly_ash_ssd_m3'] + args['slag_ssd_m3'] + args[
-                    'water_ssd_m3'] + args['coarse_aggregates_sdd_m3'] + args['fine_aggregates_ssd_m3'] + args[
-                                            'air_ssd_m3']
+                    'water_ssd_m3'] + args['coarse_aggregates_sdd_m3'] + args['fine_aggregates_ssd_m3']
 
                 args['cement_ssd_kgs'] = args['cement_ssd_m3'] * 3.15 * 998
                 args['fly_ash_ssd_kgs'] = args['fly_ash_ssd_m3'] * args['fly_ash_SG'] * 998
@@ -181,6 +187,16 @@ def calculate(request):
                 args['total_stock_mix'] = args['cement_ssd_kgs'] + args['fly_ash_ssd_kgs'] + args['slag_ssd_kgs'] + \
                                           args['water_stock_mix'] + args['coarse_aggregates_stock_mix'] + args[
                                               'fine_aggregates_stock_mix']
+
+                if (air_entrained):
+                    args['air_m3'] = args['cement_m3'] + args['fly_ash_m3'] + args['slag_m3'] + args[
+                        'fine_aggregates_m3'] / (0.94) + args['cement_m3'] + args['fly_ash_m3'] + args['slag_m3'] + \
+                                     args['fine_aggregates_m3']
+                    args['total_m3'] = args['total_m3'] + args['air_m3']
+                    args['air_1m3'] = args['air_m3'] / args['total_m3']
+                    args['total_1m3'] = args['total_1m3'] + args['air_1m3']
+                    args['air_ssd_m3'] = args['air_1m3'] * args['mix_volume']
+                    args['total_ssd_m3'] = args['total_ssd_m3'] + args['air_ssd_m3']
                 return render(request, 'mixdesign/output_M.html', args)
     else:
         form = MixDesignCalculator()
