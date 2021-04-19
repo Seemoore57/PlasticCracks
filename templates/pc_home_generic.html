@@ -24,7 +24,7 @@
 
     <!-- Add additional CSS in static file -->
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/pccalc-styles.css' %}">
     <link rel="stylesheet" href="{% static 'css/bogue.css' %}">
     <link rel="stylesheet" href="{% static 'css/tcpowers.css' %}">
 </head>
@@ -32,7 +32,7 @@
 <div class="flex-container">
     {% block navbar %}
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #555A72;">
-        <a class="navbar-brand" href="#" style="color: white; font-size: xx-large;">Plastic Cracks++</a>
+        <a class="navbar-brand" href="#" style="color: white; font-size: xx-large; padding-left: 18pc">Plastic Cracks++</a>
         <ul class="navbar-nav ms-auto" style="padding-right: 18pc">
             <li class="nav-item">
                 <a class="nav-link" href="#" style="color: lightgray"><i
@@ -42,7 +42,7 @@
                 <a class="nav-link" href="#" style="color: lightgray"><i class="fas fa-cog fa-2x"></i></a>
             </li>
             <li class="nav-item dropdown">
-                <div class="dropdown">
+                <div class="dropdown" style="padding-top: 7px; padding-left: 8px">
                     <a class="dropdown-toggle" href="#" role="button" id="navbarDropdown"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: lightgray">
                         <i class="fas fa-user-circle fa-2x"></i>
@@ -67,14 +67,14 @@
     </nav>
     {% endblock %}
 </div>
-<div class="container-fluid">
+<div class="container-flex">
     <div class="row" style="height: 49pc;background-color: #3D4257;">
         <div class="col-12" style="background-color: #3D4257;">
-        <div id="sidebar" class="collapse width multi-collapse"
-             style=" font-family: Lucida Console,serif; color: lightgray; background-color: #3D4257; position:absolute; height:100%;">
+        <div id="sidebar" class="collapse width multi-collapse" style=" font-family:
+            Lucida Console,serif; color: lightgray; background-color: #3D4257; position:absolute; height:100%;">
             {% block sidebar %}
                 <nav class="nav flex-column" style="padding: 5pc">
-                    <button class="btn btn-secondary" data-toggle="collapse" data-target=".multi-collapse" style="position: absolute; right:0%; top: 0;">X</button>
+                    <button class="btn btn-secondary" data-toggle="collapse" data-target=".multi-collapse" style="position: absolute; right: 0pc; top: 0;">X</button>
                     <a class="nav-link" href="/" style="color: lightgray">Plastic Cracks</a>
                     <a class="nav-link" href="/bogue" style="color: lightgray">Bogue</a>
                     <a class="nav-link" href="/tcpowers" style="color: lightgray">TC Powers</a>
