@@ -1,11 +1,23 @@
 {% extends "pc_home_generic.html" %}
 
+{% load widget_tweaks %}
+
 {% block content %}
-    <div class="d-flex justify-content-center" style="padding: 2pc">
+    <div class="d-flex justify-content-center" style="padding: 10pc; font-family: 'Lucida Console',serif; color: lightgray;">
         <form action="/pccalc/pcgraphs.html" method="post">
             {% csrf_token %}
-            {{ form }}
-            <input type="submit" value="Submit">
+
+            {% for field in form %}
+            <div class="form-group">
+                <p style="padding-top: 2pc;">
+                    {{ field.label_tag }}
+                </p>
+                {% render_field field class="form-control" %}
+            </div>
+            {% endfor %}
+            <div style="display: flex; justify-content: center; padding-top: 2pc">
+                <button type="submit" class="btn btn-primary" style="float: right;">Submit</button>
+            </div>
         </form>
     </div>
 {% endblock %}
