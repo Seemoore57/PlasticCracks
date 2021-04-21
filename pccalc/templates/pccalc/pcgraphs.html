@@ -1,13 +1,97 @@
 {% extends "pc_home_generic.html" %}
 
+{% block scripts %}
+<script>
+$(document).ready(function(){
+    let ctx = document.getElementById('myChart').getContext('2d');
+    let myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: [{% for item in dates %}'{{ item }}',{% endfor %}],
+            datasets: [{
+                label: 'Plastic Shrinkage Chance',
+                data: [{% for item in risks %}{{ item }},{% endfor %}],
+                backgroundColor: [],
+                borderColor: [],
+                borderWidth: 1
+            }]
+        },
+
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            },
+            legend: {
+                labels: {
+                    boxWidth: 0,
+                }
+            }
+        }
+    });
+    let dataset = myChart.data.datasets[0];
+    for(let i = 0; i < dataset.data.length; i++) {
+        if(dataset.data[i] <= 0.1) {
+            dataset.backgroundColor[i] = 'rgba(0, 255, 0, 0.4)'
+        }else if(dataset.data[i] <= 0.12){
+            dataset.backgroundColor[i] = 'rgba(125, 255, 0, 0.4)'
+        }else if(dataset.data[i] <= 0.14){
+            dataset.backgroundColor[i] = 'rgba(255, 255, 0, 0.4)'
+        }else if(dataset.data[i] <= 0.2){
+            dataset.backgroundColor[i] = 'rgba(255, 125, 0, 0.4)'
+        }else{
+            dataset.backgroundColor[i] = 'rgba(255, 0, 0, 0.4)'
+        }
+    }
+
+    myChart.update()
+
+    document.getElementById("download").addEventListener('click', function(){
+
+    /*Get image of canvas element*/
+    let url_base64jp = document.getElementById("myChart").toDataURL("image/jpg");
+
+    /*get download button (tag: <a></a>) */
+    let a =  document.getElementById("download");
+
+    /*insert chart image url to download button (tag: <a></a>) */
+    a.href = url_base64jp;
+});
+
+});
+</script>
+{% endblock scripts %}
+
+{% load widget_tweaks %}
+
 {% block content %}
-    {% if res %}
-        <ul>
-        {% for data in res %}
-            <li>{{ data }}</li>
-        {% endfor %}
-        </ul>
-    {% else %}
-        <p>No weather data available</p>
-    {% endif %}
+    <div class="d-flex justify-content-center" style="padding: 1pc; font-family: 'Lucida Console',serif; color: lightgray;">
+        <form action="/pccalc/pcgraphs.html" method="post">
+            {% csrf_token %}
+
+            {% for field in form %}
+            <div class="form-group">
+                <p style="padding-top: 2pc;">
+                    {{ field.label_tag }}
+                </p>
+                {% render_field field class="form-control" %}
+            </div>
+            {% endfor %}
+            <div style="display: flex; justify-content: center; padding-top: 2pc">
+                <button type="submit" class="btn btn-primary" style="float: right;">Submit</button>
+            </div>
+        </form>
+    </div>
+    <div class="container">
+        <canvas id="myChart" width="400" height="200"></canvas>
+    </div>
+    <div class="container">
+        <a id="download"
+            download="ChartImage.jpg"
+            href=""
+            class="btn btn-light float-right bg-flat-color-1">
+        <i class="fa fa-download"></i>
+        </a>
+    </div>
 {% endblock %}
