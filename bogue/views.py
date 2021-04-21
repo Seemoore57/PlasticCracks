@@ -87,13 +87,11 @@ def calculate(request):
             di = 2.867*si - 0.7544*tri
             alu = 2.6504*a - 1.692*r
             af = 3.0432*r
-            leftover = 100 - tri - di - alu - af
         else:
             tri = 4.071 * l - 7.60 * si - 4.479 * a - 2.859 * r - 2.852 * s
             di = 2.867 * si - 0.7544 * tri
             alu = 0
             af = 2.1 * a + 1.702 * r
-            leftover = 100 - tri - di - alu - af
 
         if tri < 0:
             tri = 0
@@ -103,6 +101,8 @@ def calculate(request):
             alu = 0
         if af < 0:
             af = 0
+
+        leftover = 100 - tri - di - alu - af
         if leftover < 0:
             messages.error(request, 'Error: Calculation results over 100%')
             return redirect(back)
