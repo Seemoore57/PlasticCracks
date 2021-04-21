@@ -9,7 +9,7 @@ $(document).ready(function(){
         data: {
             labels: [{% for item in dates %}'{{ item }}',{% endfor %}],
             datasets: [{
-                label: 'Plastic Shrinkage Chance',
+                label: 'Evaporation Rate by Date',
                 data: [{% for item in risks %}{{ item }},{% endfor %}],
                 backgroundColor: [],
                 borderColor: [],
@@ -19,8 +19,11 @@ $(document).ready(function(){
 
         options: {
             scales: {
-                y: {
-                    beginAtZero: true
+                x: {
+                    display: true,
+                    title: {
+                        text: 'Evaporation Rate'
+                    },
                 }
             },
             legend: {
