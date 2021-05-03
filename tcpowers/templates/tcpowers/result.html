@@ -21,7 +21,7 @@
                             <li>Water/Cement Ratio</li>
                     </div>
                     <div class="colu-5">
-                            <li><input type="number" id="WCRatio" name="WCRatio"></li>
+                            <li><input type="number" step="0.01" id="WCRatio" name="WCRatio" max="1" min="0"></li>
                     </div>
                 </div>
 
@@ -30,7 +30,7 @@
                             <li>Degree of Hydration</li>
                     </div>
                     <div class="colu-5">
-                            <li><input type="number" id="DegOfHydra" name="DegOfHydra"></li>
+                            <li><input type="number" step="0.01" id="DegOfHydra" name="DegOfHydra" max="1" min="0"></li>
                     </div>
                 </div>
             </ul>
@@ -52,9 +52,9 @@
             <div class="colu-18 chart">
                 <div class="colu-3 chart"></div>
                 <div class="colu-15 bar-container chart">
-                    <div class="bar trisilicate" style="height: {{ vc }}%"><div class="ltooltip">Capillary Pores: {{ vc }}%</div></div>
-                    <div class="bar disilicate" style="height: {{ vg }}%"><div class="ltooltip">Gel Pores: {{ vg }}%</div></div>
-                    <div class="bar trialumina" style="height: {{ vhp }}%"><div class="ltooltip">Hydration Products: {{ vhp }}%</div></div>
+                    <div class="bar trisilicate" style="height: {{ g1 }}%"><div class="ltooltip">Capillary Pores: {{ vc }}</div></div>
+                    <div class="bar disilicate" style="height: {{ g2 }}%"><div class="ltooltip">Gel Pores: {{ vg }}</div></div>
+                    <div class="bar trialumina" style="height: {{ g3 }}%"><div class="ltooltip">Hydration Products: {{ vhp }}</div></div>
                 </div>
                 <div class="colu-6 chart"></div>
             </div>
@@ -75,7 +75,7 @@
                     <li>W<sub>a</sub></li>
                 </div>
                 <div class="colu-7">
-                    <li>{{ wa|floatformat:2 }}%</li>
+                    <li>{{ wa|floatformat:2 }}</li>
                 </div>
             </div>
             <div class="lrow">
@@ -83,7 +83,7 @@
                     <li>W<sub>g</sub></li>
                 </div>
                 <div class="colu-7">
-                    <li>{{ wg|floatformat:2 }}%</li>
+                    <li>{{ wg|floatformat:2 }}</li>
                 </div>
             </div>
             <div class="lrow">
@@ -91,7 +91,7 @@
                     <li>V<sub>g</sub></li>
                 </div>
                 <div class="colu-7">
-                    <li>{{ vg|floatformat:2 }}%</li>
+                    <li>{{ vg|floatformat:2 }}</li>
                 </div>
             </div>
             <div class="lrow">
@@ -99,7 +99,7 @@
                     <li>V<sub>hp</sub></li>
                 </div>
                 <div class="colu-7">
-                    <li>{{ vhp|floatformat:2 }}%</li>
+                    <li>{{ vhp|floatformat:2 }}</li>
                 </div>
             </div>
             <div class="lrow">
@@ -107,7 +107,7 @@
                     <li>V<sub>c</sub></li>
                 </div>
                 <div class="colu-7">
-                    <li>{{ vc|floatformat:2 }}%</li>
+                    <li>{{ vc|floatformat:2 }}</li>
                 </div>
             </div>
             <div class="lrow">
@@ -115,7 +115,7 @@
                     <li>V<sub>u</sub></li>
                 </div>
                 <div class="colu-7">
-                    <li>{{ vu|floatformat:2 }}%</li>
+                    <li>{{ vu|floatformat:2 }}</li>
                 </div>
             </div>
             <div class="lrow">
@@ -123,7 +123,7 @@
                     <li>P<sub>r</sub></li>
                 </div>
                 <div class="colu-7">
-                    <li>{{ pg|floatformat:2 }}%</li>
+                    <li>{{ pg|floatformat:2 }}</li>
                 </div>
             </div>
             <div class="lrow">
@@ -131,7 +131,7 @@
                     <li>P<sub>c</sub></li>
                 </div>
                 <div class="colu-7">
-                    <li>{{ pc|floatformat:2 }}%</li>
+                    <li>{{ pc|floatformat:2 }}</li>
                 </div>
             </div>
             <div class="lrow">
@@ -139,7 +139,7 @@
                     <li>X</li>
                 </div>
                 <div class="colu-7">
-                    <li>{{ x|floatformat:2 }}%</li>
+                    <li>{{ x|floatformat:2 }}</li>
                 </div>
             </div>
         </ul>

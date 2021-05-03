@@ -16,17 +16,19 @@ def calculate(request):
             args = {}
             wcr = form.cleaned_data['WCRatio']
             doh = form.cleaned_data['DegOfHydra']
+            wcr = wcr * 100
+            doh = doh * 100
 
             if(1):#(wcr * .01) > (0.42 * doh)):
-                wa = .24 * doh
-                wg = .18 * doh
-                vhp = .68 * doh
-                vg = .18 * doh
-                vc =  ((wcr * .01) - (.36 * doh * .01)) * 100
-                vu = 100 * ((1 - (doh * .01)) * .32)
-                pg = 100 * wg / vhp
+                wa = (.24 * doh) / 100
+                wg = (.18 * doh) / 100
+                vhp = (.68 * doh)/ 100
+                vg = (.18 * doh)/ 100
+                vc =  (((wcr * .01) - (.36 * doh * .01)) * 100)/ 100
+                vu = (100 * ((1 - (doh * .01)) * .32))/ 100
+                pg = (100 * wg / vhp)/ 100
                 pc = (vc * 100) / (wcr + 32)
-                x = (.68 * doh) / ((.32 * doh) + wcr) * 100
+                x = ((.68 * doh) / ((.32 * doh) + wcr) * 100)/ 100
 
                 args['wa'] = wa
                 args['wg'] = wg
@@ -37,6 +39,9 @@ def calculate(request):
                 args['pg'] = pg
                 args['pc'] = pc
                 args['x'] = x
+                args['g1'] = vc * 100
+                args['g2'] = vg * 100
+                args['g3'] = vhp * 100
                 args['form'] = form
                 return render(request, 'tcpowers/result.html', args)
             else:
